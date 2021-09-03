@@ -9,7 +9,8 @@ public class Atraccion implements Comprable{
 	private int cupoMaximo;
 	private TiposDeAtracciones tipo;
 
-	public Atraccion(String nombre, int costo, double duracion, int cupoMaximo, TiposDeAtracciones tipo) {		
+	public Atraccion(String nombre, int costo, double duracion, int cupoMaximo,
+			TiposDeAtracciones tipo) {
 		this.nombre = nombre;
 		this.costo = costo;
 		this.duracion = duracion;

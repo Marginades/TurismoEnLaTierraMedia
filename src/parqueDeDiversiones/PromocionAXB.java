@@ -3,7 +3,6 @@ package parqueDeDiversiones;
 public class PromocionAXB extends Promocion{
 	private Atraccion atraccionGratis;
 
-
 	public PromocionAXB(Atraccion[] atracciones, TiposDeAtracciones tipo, String nombre, Atraccion atraccionGratis) {
 		super(atracciones, tipo, nombre);
 		this.atraccionGratis = atraccionGratis;
@@ -25,10 +24,10 @@ public class PromocionAXB extends Promocion{
 		boolean hayCupo = false;
 		for (Atraccion a : atracciones) {
 			if (a.hayCupo()) {
-				hayCupo = true;	
+				hayCupo = true;
 			}else if(atraccionGratis.hayCupo()){
 				hayCupo = true;
-			}else 
+			}else
 				hayCupo = false;
 		}
 		return hayCupo;
@@ -47,7 +46,7 @@ public class PromocionAXB extends Promocion{
 	public double getDuracion() {
 		double duracion = 0;
 		for (Atraccion a : atracciones) {
-				duracion += a.getDuracion();	
+				duracion += a.getDuracion();
 		}
 		duracion += atraccionGratis.getDuracion();
 		return duracion;

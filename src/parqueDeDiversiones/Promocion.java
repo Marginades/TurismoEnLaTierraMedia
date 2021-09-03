@@ -1,9 +1,8 @@
 package parqueDeDiversiones;
 
 public abstract class Promocion implements Comprable{
-	
 	protected Atraccion[] atracciones;
-	private TiposDeAtracciones tipo;
+	protected TiposDeAtracciones tipo;
 	protected String nombre;
 
 
