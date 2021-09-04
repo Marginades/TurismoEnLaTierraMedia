@@ -7,4 +7,6 @@ public interface Comprable {
 	int getPrecio();
 
 	double getDuracion();
+
+	TiposDeAtracciones getTipo();
 }

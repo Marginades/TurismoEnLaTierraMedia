@@ -1,12 +1,14 @@
 package parqueDeDiversiones;
 
+import java.util.List;
+
 public abstract class Promocion implements Comprable{
-	protected Atraccion[] atracciones;
+	protected List <Atraccion> atracciones;
 	protected TiposDeAtracciones tipo;
 	protected String nombre;
 
 
-	public Promocion(Atraccion[] atracciones, TiposDeAtracciones tipo, String nombre) {
+	public Promocion(List<Atraccion> atracciones, TiposDeAtracciones tipo, String nombre) {
 		this.setAtracciones(atracciones);
 		this.tipo = tipo;
 		this.nombre = nombre;
@@ -14,13 +16,12 @@ public abstract class Promocion implements Comprable{
 
 	@Override
 	public boolean hayCupo() {
-		boolean hayCupo = false;
 		for (Atraccion a : this.atracciones) {
-			if (a.hayCupo()) {
-				hayCupo = true;	
+			if (!a.hayCupo()) {
+				return false;	
 			}
 		}
-		return hayCupo;
+		return true;
 	}
 
 	@Override
@@ -32,15 +33,16 @@ public abstract class Promocion implements Comprable{
 		return duracion;
 	}
 
+	@Override
 	public TiposDeAtracciones getTipo() {
 		return this.tipo;
 	}
 
-	private Atraccion[] setAtracciones(Atraccion [] atracciones) {
-		for (int i = 0; i < atracciones.length; i++) {
-			if(atracciones[i].getTipo() == this.tipo) {
-				atracciones[i] = this.atracciones[i];
-			}else throw new Error("Las atracciones ingresadas no son del mismo tipo");
+	private List<Atraccion> setAtracciones(List<Atraccion> atracciones) {
+		for (Atraccion a : atracciones) {
+			if(a.getTipo() == this.tipo) {
+				atracciones.add(a);
+			}else throw new TipoInvalidoException("Una de las atracciones ingresadas no es del mismo tipo que la promcion");
 		}
 		return this.atracciones;
 	}

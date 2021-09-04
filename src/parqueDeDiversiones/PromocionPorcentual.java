@@ -1,21 +1,22 @@
 package parqueDeDiversiones;
 
+import java.util.List;
+
 public class PromocionPorcentual extends Promocion{
 	private double descuento;
 
-	public PromocionPorcentual(Atraccion[] atracciones, TiposDeAtracciones tipo, String nombre, double descuento) {
+	public PromocionPorcentual(List<Atraccion> atracciones, TiposDeAtracciones tipo, String nombre, double descuento) {
 		super(atracciones, tipo, nombre);
-		this.descuento = descuento;
+		this.setDescuento(descuento);
 	}
 
 	@Override
 	public String toString() {
 		String impresion = "Pack " + this.nombre + ": ";
-		for (int i = 0; i < atracciones.length - 1; i++) {
-			impresion += atracciones[i].getNombre() + ", ";
+		for (Atraccion a : atracciones) {
+			impresion += a.getNombre() + ", ";
 		}
-		impresion += "y " + atracciones[atracciones.length - 1].getNombre() +
-				" con un " + this.descuento + "% de descuento si se llevan ambas";
+		impresion += " con un " + this.descuento + "% de descuento si se llevan ambas";
 		return impresion;
 	}
 
@@ -27,5 +28,11 @@ public class PromocionPorcentual extends Promocion{
 		}
 		precio -= Math.round(precio * this.descuento);
 		return precio;
+	}
+	
+	private void setDescuento(double descuento) {
+		if(descuento <= 0 || descuento >= 1)
+			throw new DescuentoInvalidoException("El descuento ingresado debe ser menor a 1 y mayor a 0");
+		this.descuento = descuento;
 	}
 }
