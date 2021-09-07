@@ -5,10 +5,12 @@ import java.util.List;
 public class PromocionPorcentual extends Promocion{
 	private double descuento;
 
-	public PromocionPorcentual(List<Atraccion> atracciones, TipoDeAtraccion tipo, String nombre, double descuento) {
-		super(atracciones, tipo, nombre);
+	public PromocionPorcentual(TipoDeAtraccion tipo, List<Atraccion> atracciones, String nombre, double descuento) {
+		super(tipo, atracciones, nombre);
 		this.setDescuento(descuento);
 	}
+	
+	public double getDescuento() { return this.descuento; }
 
 	@Override
 	public String toString() {

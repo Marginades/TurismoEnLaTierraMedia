@@ -1,6 +1,8 @@
 package parqueDeDiversiones;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.LinkedList;
@@ -34,14 +36,17 @@ public class PromocionTest {
 	public void setUp() throws Exception {
 		//ATRACCIONES
 		moria = new Atraccion("Moria", 10, 2, 6, TipoDeAtraccion.AVENTURA);
-		minasTirith = new Atraccion("Minas Tirith", 5, 2.5, 25, TipoDeAtraccion.PAISAJE);
-		laComarca = new Atraccion("La Comarca", 3, 6.5, 150, TipoDeAtraccion.DEGUSTACION);
 		mordor = new Atraccion("Mordor", 25, 3, 4, TipoDeAtraccion.AVENTURA);
-		abismoDeHelm = new Atraccion("Abismo de Helm", 5, 2, 15, TipoDeAtraccion.PAISAJE);
-		lothorien = new Atraccion("Lothorien", 12, 1, 30, TipoDeAtraccion.DEGUSTACION);
-		erebor = new Atraccion("Erebor", 12, 3, 32, TipoDeAtraccion.PAISAJE);
 		bosqueNegro = new Atraccion("Bosque Negro", 3, 4, 12, TipoDeAtraccion.AVENTURA);
 		
+		erebor = new Atraccion("Erebor", 12, 3, 32, TipoDeAtraccion.PAISAJE);
+		minasTirith = new Atraccion("Minas Tirith", 5, 2.5, 25, TipoDeAtraccion.PAISAJE);
+		abismoDeHelm = new Atraccion("Abismo de Helm", 5, 2, 15, TipoDeAtraccion.PAISAJE);
+		
+		lothorien = new Atraccion("Lothorien", 12, 1, 30, TipoDeAtraccion.DEGUSTACION);
+		laComarca = new Atraccion("La Comarca", 3, 6.5, 150, TipoDeAtraccion.DEGUSTACION);
+		
+				
 		//LISTA DE ATRACCIONES
 		aventura = new LinkedList<Atraccion>();
 		aventura.add((Atraccion) bosqueNegro);
@@ -56,9 +61,9 @@ public class PromocionTest {
 		paisaje.add((Atraccion) abismoDeHelm);
 		
 		//PROMOCIONES
-		packAventura = new PromocionPorcentual(aventura, TipoDeAtraccion.AVENTURA, "", 0.2);
-		packDegustacion = new PromocionAbsoluta(degustacion, TipoDeAtraccion.DEGUSTACION, "", 36);
-		packPaisajes = new PromocionAXB(paisaje, TipoDeAtraccion.PAISAJE, "", (Atraccion) erebor);
+		packAventura = new PromocionPorcentual(TipoDeAtraccion.AVENTURA, aventura, "", 0.2);
+		packDegustacion = new PromocionAbsoluta(TipoDeAtraccion.DEGUSTACION, degustacion, "", 36);
+		packPaisajes = new PromocionAXB(TipoDeAtraccion.PAISAJE, paisaje, "", (Atraccion) erebor);
 	}
 
 	@Test
@@ -70,17 +75,26 @@ public class PromocionTest {
 	
 	@Test
 	public void creacionTestPromocionPorcentual() {
-		fail("Not yet implemented");
+		assertEquals(packAventura.getTipo(), TipoDeAtraccion.AVENTURA);
+		assertEquals(packAventura.getNombre(), "");
+		assertTrue(((Promocion) packAventura).getAtracciones().equals(aventura));
+		assertEquals(((PromocionPorcentual) packAventura).getDescuento(), 0.2, 0);
 	}
 	
 	@Test
 	public void creacionTestPromocionAbsoluta() {
-		fail("Not yet implemented");
+		assertEquals(packDegustacion.getTipo(), TipoDeAtraccion.DEGUSTACION);
+		assertEquals(packDegustacion.getNombre(), "");
+		assertEquals(((Promocion) packDegustacion).getAtracciones(), degustacion);
+		assertEquals(((PromocionAbsoluta)packDegustacion).getDescuento(), 36);
 	}
 	
 	@Test
 	public void creacionTestPromocionAXB() {
-		fail("Not yet implemented");
+		assertEquals(packPaisajes.getTipo(), TipoDeAtraccion.PAISAJE);
+		assertEquals(packPaisajes.getNombre(), "");
+		assertEquals(((Promocion) packPaisajes).getAtracciones(), paisaje);
+		assertEquals(((PromocionAXB) packPaisajes).getAtraccionGratis(), (Atraccion) erebor);
 	}
 
 }

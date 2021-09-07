@@ -2,7 +2,7 @@ package parqueDeDiversiones;
 
 public class Atraccion implements Comprable{
 
-	private String nombre = "";
+	private String nombre;
 	private int costo;
 	private double duracion;
 	private int entradasVendidas = 0;
@@ -38,9 +38,9 @@ public class Atraccion implements Comprable{
 		return this.entradasVendidas < this.cupoMaximo;
 	}
 	
-	public int getEntradasVendidas() {
-		return this.entradasVendidas;
-	}
+	public int getCupoMaximo() { return this.cupoMaximo; }
+	
+	public int getEntradasVendidas() { return this.entradasVendidas; }
 
 	//Setters con excepciones
 	private void setCosto(int costo) {
@@ -61,10 +61,6 @@ public class Atraccion implements Comprable{
 		this.cupoMaximo = cupoMaximo;
 	}
 	
-	public int getCupoMaximo() {
-		return this.cupoMaximo;
-	}
-	
 	//Modifica el atributo entradasVendidas
 	public void comprarLugar() {
 		if(!this.hayCupo())
@@ -73,9 +69,9 @@ public class Atraccion implements Comprable{
 	}
 	
 	//Imprimir
-	@Override
-	public String toString() {
-		return "Llevá " + this.nombre + " por " + this.costo + " monedas de oro";
-	}
+	//@Override
+	//public String toString() {
+	//	return ""; //Llevá " + this.nombre + " por " + this.costo + " monedas de oro";
+	//}
 
 }

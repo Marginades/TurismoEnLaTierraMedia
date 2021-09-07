@@ -5,10 +5,12 @@ import java.util.List;
 public class PromocionAXB extends Promocion{
 	private Atraccion atraccionGratis;
 
-	public PromocionAXB(List<Atraccion> atracciones, TipoDeAtraccion tipo, String nombre, Atraccion atraccionGratis) {
-		super(atracciones, tipo, nombre);
-		this.atraccionGratis = atraccionGratis;
+	public PromocionAXB(TipoDeAtraccion tipo, List<Atraccion> atracciones, String nombre, Atraccion atraccionGratis) {
+		super(tipo, atracciones, nombre);
+		this.setAtraccionGratis(atraccionGratis);
 	}
+	
+	public Atraccion getAtraccionGratis() { return this.atraccionGratis; }
 
 	@Override
 	public String toString() {
@@ -39,6 +41,11 @@ public class PromocionAXB extends Promocion{
 		return super.getDuracion() + atraccionGratis.getDuracion();
 	}
 
+	private void setAtraccionGratis(Atraccion atraccionGratis) {
+		if(!(this.getTipo() == atraccionGratis.getTipo()))
+			throw new TipoInvalidoException("La atraccion debe ser del mismo tipo que la promoción");
+		this.atraccionGratis = atraccionGratis;
+	}
 	
 	
 }

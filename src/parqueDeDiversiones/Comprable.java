@@ -11,8 +11,6 @@ public interface Comprable {
 	public TipoDeAtraccion getTipo();
 	
 	public int getEntradasVendidas();
-
-	public int getCupoMaximo(); 
 	
 	
 	public boolean hayCupo();

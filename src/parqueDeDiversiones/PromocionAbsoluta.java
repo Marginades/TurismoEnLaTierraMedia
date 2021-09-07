@@ -3,12 +3,14 @@ package parqueDeDiversiones;
 import java.util.List;
 
 public class PromocionAbsoluta extends Promocion {
-	private int precio;
+	private int descuento;
 
-	public PromocionAbsoluta(List<Atraccion> atracciones, TipoDeAtraccion tipo, String nombre, int precio) {
-		super(atracciones, tipo, nombre);
-		this.setPrecio(precio);
+	public PromocionAbsoluta(TipoDeAtraccion tipo, List<Atraccion> atracciones, String nombre, int descuento) {
+		super(tipo, atracciones, nombre);
+		this.setPrecio(descuento);
 	}
+	
+	public int getDescuento() { return this.descuento; }
 
 	@Override
 	public String toString() {
@@ -16,18 +18,18 @@ public class PromocionAbsoluta extends Promocion {
 		for (Atraccion a : atracciones) {
 			impresion += a.getNombre() + ", ";
 		}
-		impresion += " a tan solo" + this.precio;
+		impresion += " a tan solo" + this.descuento;
 		return impresion;
 	}
 
-	@Override
+	@Override //REVISAR HAY QUEHACER UNA CUENTA
 	public int getCosto() {
-		return this.precio;
+		return this.descuento;
 	}
 
 	private void setPrecio(int precio) {
 		if (precio <= 0)
 			throw new MontoInvalidoException("El monto debe ser mayor a 0");
-		this.precio = precio;
+		this.descuento = precio;
 	}
 }
