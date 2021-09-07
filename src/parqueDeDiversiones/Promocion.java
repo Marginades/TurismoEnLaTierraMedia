@@ -33,7 +33,7 @@ public abstract class Promocion implements Comprable{
 	public TipoDeAtraccion getTipo() { return this.tipo; }
 	
 	@Override
-	public int getCosto() {
+	public double getCosto() {
 		int contador = 0;
 		for (Atraccion atraccion : this.atracciones) {
 			contador += atraccion.getCosto();

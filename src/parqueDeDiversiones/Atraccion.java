@@ -25,7 +25,7 @@ public class Atraccion implements Comprable{
 	public String getNombre() { return nombre;	}
 	
 	@Override
-	public int getCosto() { return this.costo; 	}
+	public double getCosto() { return this.costo; 	}
 
 	@Override
 	public double getDuracion() { return this.duracion; }

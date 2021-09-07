@@ -28,12 +28,8 @@ public class PromocionAXB extends Promocion{
 	}
 
 	@Override
-	public int getCosto() {
-		int precio = 0;
-		for(Atraccion a : atracciones) {
-			precio += a.getCosto();
-		}
-		return precio;
+	public double getCosto() {
+		return super.getCosto();
 	}
 
 	@Override

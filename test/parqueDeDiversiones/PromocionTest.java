@@ -43,7 +43,7 @@ public class PromocionTest {
 		minasTirith = new Atraccion("Minas Tirith", 5, 2.5, 25, TipoDeAtraccion.PAISAJE);
 		abismoDeHelm = new Atraccion("Abismo de Helm", 5, 2, 15, TipoDeAtraccion.PAISAJE);
 		
-		lothorien = new Atraccion("Lothorien", 12, 1, 30, TipoDeAtraccion.DEGUSTACION);
+		lothorien = new Atraccion("Lothorien", 35, 1, 30, TipoDeAtraccion.DEGUSTACION);
 		laComarca = new Atraccion("La Comarca", 3, 6.5, 150, TipoDeAtraccion.DEGUSTACION);
 		
 				
@@ -66,6 +66,7 @@ public class PromocionTest {
 		packPaisajes = new PromocionAXB(TipoDeAtraccion.PAISAJE, paisaje, "", (Atraccion) erebor);
 	}
 
+	//Testeo de constructores
 	@Test
 	public void creacionGeneralTest() {
 		assertNotNull(packAventura);
@@ -96,5 +97,23 @@ public class PromocionTest {
 		assertEquals(((Promocion) packPaisajes).getAtracciones(), paisaje);
 		assertEquals(((PromocionAXB) packPaisajes).getAtraccionGratis(), (Atraccion) erebor);
 	}
+	
+	//Testeo de getCosto en los 3 tipos de promociones
+	@Test
+	public void getCostoTestPromocionPorcentual() {
+		assertEquals(22.4, packAventura.getCosto(), 0);
+	}
+	
+	@Test
+	public void getCostoTestPromocionAbsoluta() {
+		assertEquals(2, packDegustacion.getCosto(), 0);
+	}
+	
+	@Test
+	public void getCostoTestPromocionAXB() {
+		assertEquals(10, packPaisajes.getCosto(), 0);
+	}
+	
+	
 
 }

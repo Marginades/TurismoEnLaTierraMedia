@@ -22,9 +22,10 @@ public class PromocionAbsoluta extends Promocion {
 		return impresion;
 	}
 
-	@Override //REVISAR HAY QUEHACER UNA CUENTA
-	public int getCosto() {
-		return this.descuento;
+	@Override
+	public double getCosto() {
+		double precio = super.getCosto();
+		return precio - this.descuento;
 	}
 
 	private void setPrecio(int precio) {

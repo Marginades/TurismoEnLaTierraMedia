@@ -23,13 +23,10 @@ public class PromocionPorcentual extends Promocion{
 	}
 
 	@Override
-	public int getCosto() {
-		int precio = 0;
-		for(Atraccion a : atracciones) {
-			precio += a.getCosto();
-		}
-		precio -= Math.round(precio * this.descuento);
-		return precio;
+	public double getCosto() {
+		double precio = super.getCosto();
+		double descuento = precio * this.descuento;
+		return precio - descuento;
 	}
 	
 	private void setDescuento(double descuento) {

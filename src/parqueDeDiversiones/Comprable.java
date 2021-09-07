@@ -4,7 +4,7 @@ public interface Comprable {
 
 	public String getNombre();
 	
-	public int getCosto();
+	public double getCosto();
 
 	public double getDuracion();
 
