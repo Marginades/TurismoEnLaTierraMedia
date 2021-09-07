@@ -114,6 +114,37 @@ public class PromocionTest {
 		assertEquals(10, packPaisajes.getCosto(), 0);
 	}
 	
+	//Testeo de getCosto en los 3 tipos de promociones
+	@Test
+	public void getDuracioTestPromocionPorcentual() {
+		assertEquals(7, packAventura.getDuracion(), 0);
+	}
+	
+	@Test
+	public void getDuracioTestPromocionAbsoluta() {
+		assertEquals(7.5, packDegustacion.getDuracion(), 0);
+	}
+	
+	@Test
+	public void getDuracioTestPromocionAXB() {
+		assertEquals(7.5, packPaisajes.getDuracion(), 0);
+	}
+	
+	//Testeo de hayCupo en los 3 tipos de promociones
+	@Test
+	public void hayCupoTestPromocionPorcentual() {
+		assertTrue(packAventura.hayCupo());
+	}
+	
+	@Test
+	public void hayCupoTestPromocionAbsoluta() {
+		assertTrue(packDegustacion.hayCupo());
+	}
+	
+	@Test
+	public void hayCupoTestPromocionAXB() {
+		assertTrue(packPaisajes.hayCupo());
+	}
 	
 
 }
