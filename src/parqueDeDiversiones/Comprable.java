@@ -12,7 +12,7 @@ public interface Comprable {
 	
 	public int getEntradasVendidas();
 
-	public int cupoMaximo(); 
+	public int getCupoMaximo(); 
 	
 	
 	public boolean hayCupo();

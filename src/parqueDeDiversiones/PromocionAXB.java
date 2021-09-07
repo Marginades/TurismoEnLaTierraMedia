@@ -7,7 +7,7 @@ public class PromocionAXB extends Promocion{
 
 	public PromocionAXB(List<Atraccion> atracciones, TipoDeAtraccion tipo, String nombre, Atraccion atraccionGratis) {
 		super(atracciones, tipo, nombre);
-		this.setAtraccionGratis(atraccionGratis);
+		this.atraccionGratis = atraccionGratis;
 	}
 
 	@Override
@@ -39,11 +39,6 @@ public class PromocionAXB extends Promocion{
 		return super.getDuracion() + atraccionGratis.getDuracion();
 	}
 
-	private void setAtraccionGratis(Atraccion atraccionGratis) {
-		if(!(this.getTipo() == atraccionGratis.getTipo()))
-			throw new TipoInvalidoException("La atraccion debe ser del mismo tipo que la promoción");
-		this.atraccionGratis = atraccionGratis;
-	}
 	
 	
 }

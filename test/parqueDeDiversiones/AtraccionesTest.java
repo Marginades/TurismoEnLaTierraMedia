@@ -36,7 +36,7 @@ public class AtraccionesTest {
 		assertEquals(moria.getNombre(), "Moria");
 		assertEquals(moria.getCosto(), 10);
 		assertEquals(moria.getDuracion(), 2, 0);
-		assertEquals(moria.cupoMaximo(), 6);
+		assertEquals(moria.getCupoMaximo(), 6);
 		assertEquals(moria.getTipo(), TipoDeAtraccion.AVENTURA);
 	}
 	

@@ -61,7 +61,7 @@ public class Atraccion implements Comprable{
 		this.cupoMaximo = cupoMaximo;
 	}
 	
-	public int cupoMaximo() {
+	public int getCupoMaximo() {
 		return this.cupoMaximo;
 	}
 	
