@@ -2,11 +2,22 @@ package parqueDeDiversiones;
 
 public interface Comprable {
 
-	boolean hayCupo();
+	public String getNombre();
+	
+	public int getCosto();
 
-	int getPrecio();
+	public double getDuracion();
 
-	double getDuracion();
+	public TipoDeAtraccion getTipo();
+	
+	public int getEntradasVendidas();
 
-	TiposDeAtracciones getTipo();
+	public int cupoMaximo(); 
+	
+	
+	public boolean hayCupo();
+
+	public void comprarLugar();
+
+
 }

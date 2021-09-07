@@ -5,7 +5,7 @@ import java.util.List;
 public class PromocionAXB extends Promocion{
 	private Atraccion atraccionGratis;
 
-	public PromocionAXB(List<Atraccion> atracciones, TiposDeAtracciones tipo, String nombre, Atraccion atraccionGratis) {
+	public PromocionAXB(List<Atraccion> atracciones, TipoDeAtraccion tipo, String nombre, Atraccion atraccionGratis) {
 		super(atracciones, tipo, nombre);
 		this.setAtraccionGratis(atraccionGratis);
 	}
@@ -26,10 +26,10 @@ public class PromocionAXB extends Promocion{
 	}
 
 	@Override
-	public int getPrecio() {
+	public int getCosto() {
 		int precio = 0;
 		for(Atraccion a : atracciones) {
-			precio += a.getPrecio();
+			precio += a.getCosto();
 		}
 		return precio;
 	}

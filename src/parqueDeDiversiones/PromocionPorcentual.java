@@ -5,7 +5,7 @@ import java.util.List;
 public class PromocionPorcentual extends Promocion{
 	private double descuento;
 
-	public PromocionPorcentual(List<Atraccion> atracciones, TiposDeAtracciones tipo, String nombre, double descuento) {
+	public PromocionPorcentual(List<Atraccion> atracciones, TipoDeAtraccion tipo, String nombre, double descuento) {
 		super(atracciones, tipo, nombre);
 		this.setDescuento(descuento);
 	}
@@ -21,10 +21,10 @@ public class PromocionPorcentual extends Promocion{
 	}
 
 	@Override
-	public int getPrecio() {
+	public int getCosto() {
 		int precio = 0;
 		for(Atraccion a : atracciones) {
-			precio += a.getPrecio();
+			precio += a.getCosto();
 		}
 		precio -= Math.round(precio * this.descuento);
 		return precio;

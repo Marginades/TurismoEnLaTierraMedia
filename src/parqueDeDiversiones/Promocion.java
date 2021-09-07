@@ -4,11 +4,19 @@ import java.util.List;
 
 public abstract class Promocion implements Comprable{
 	protected List <Atraccion> atracciones;
-	protected TiposDeAtracciones tipo;
+	protected TipoDeAtraccion tipo;
 	protected String nombre;
 
 
-	public Promocion(List<Atraccion> atracciones, TiposDeAtracciones tipo, String nombre) {
+	protected List<Atraccion> getAtracciones() {
+		return atracciones;
+	}
+
+	protected String getNombre() {
+		return nombre;
+	}
+
+	public Promocion(List<Atraccion> atracciones, TipoDeAtraccion tipo, String nombre) {
 		this.setAtracciones(atracciones);
 		this.tipo = tipo;
 		this.nombre = nombre;
@@ -34,7 +42,7 @@ public abstract class Promocion implements Comprable{
 	}
 
 	@Override
-	public TiposDeAtracciones getTipo() {
+	public TipoDeAtraccion getTipo() {
 		return this.tipo;
 	}
 

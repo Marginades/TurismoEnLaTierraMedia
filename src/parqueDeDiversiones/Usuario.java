@@ -7,11 +7,11 @@ public class Usuario {
 	private String nombre;
 	private int presupuesto;
 	private double disponibilidad;
-	private TiposDeAtracciones preferencia;
+	private TipoDeAtraccion preferencia;
 	private List<Comprable> itinerario;
 
 	public Usuario(String nombre, int presupuesto, double disponibilidad, 
-			TiposDeAtracciones preferencia) {
+			TipoDeAtraccion preferencia) {
 		this.nombre = nombre;
 		this.setPresupuesto(presupuesto);;
 		this.setDisponibilidad(disponibilidad);;
@@ -20,7 +20,7 @@ public class Usuario {
 	}
 
 	public void comprar(Comprable producto) {
-		this.presupuesto -= producto.getPrecio();
+		this.presupuesto -= producto.getCosto();
 		this.disponibilidad -= producto.getDuracion();
 		itinerario.add(producto);
 	}
@@ -34,7 +34,7 @@ public class Usuario {
 
 	private void setDisponibilidad(double disponibilidad) {
 		if(disponibilidad <= 0)
-			throw new TiempoInvalidoException("La disponibilidad debe ser mayor a 0");
+			throw new DuracionInvalidaException("La disponibilidad debe ser mayor a 0");
 		this.disponibilidad = disponibilidad;
 	}
 }

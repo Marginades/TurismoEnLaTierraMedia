@@ -5,7 +5,7 @@ import java.util.List;
 public class PromocionAbsoluta extends Promocion {
 	private int precio;
 
-	public PromocionAbsoluta(List<Atraccion> atracciones, TiposDeAtracciones tipo, String nombre, int precio) {
+	public PromocionAbsoluta(List<Atraccion> atracciones, TipoDeAtraccion tipo, String nombre, int precio) {
 		super(atracciones, tipo, nombre);
 		this.setPrecio(precio);
 	}
@@ -21,7 +21,7 @@ public class PromocionAbsoluta extends Promocion {
 	}
 
 	@Override
-	public int getPrecio() {
+	public int getCosto() {
 		return this.precio;
 	}
 

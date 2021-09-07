@@ -1,5 +1,5 @@
 package parqueDeDiversiones;
 
-public enum TiposDeAtracciones {
+public enum TipoDeAtraccion {
 	AVENTURA, PAISAJE, DEGUSTACION
 }
