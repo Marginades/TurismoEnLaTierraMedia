@@ -1,0 +1,27 @@
+AXB-Aventura-Promocion 2x1 Aventura en las montañas-Montañas Asperas/Meseta de Gorgoroth/Montañas de Angmar
+AXB-Aventura-Promocion 2x1 Paseo Costero-Montañas de Angmar/Bahia de Forochel/Mar de Nurnen
+AXB-Aventura-Promocion 2x1 Caminata por los senderos-Bosque Negro/Moria/Montañas Asperas
+PORCENTUAL-Aventura-Promocion Porcentual-5-Moria/Montañas de Angmar/Bahia de Forochel
+PORCENTUAL-Aventura-Promocion Porcentual-20-Mordor/Mar de Nurnen/Meseta de Gorgoroth
+PORCENTUAL-Aventura-Promocion Porcentual-10-Montañas Asperas/Bosque Negro
+ABSOLUTA-Aventura-Promocion Absoluta-40-Montañas Asperas/Meseta de Gorgoroth/Montañas de Angmar
+ABSOLUTA-Aventura-Promocion Absoluta-80-Moria/Bahia de Forochel/Mar de Nurnen/Montañas Asperas/Bosque Negro
+ABSOLUTA-Aventura-Promocion Absoluta-20-Meseta de Gorgoroth/Montañas Asperas
+AXB-Degustacion-Promocion 2x1 Aventura en las montañas-Cardolan/Pinnath Gelin/Isengard
+AXB-Degustacion-Promocion 2x1 Paseo Costero-Montañas Azules/La Comarca/Pinnath Gelin
+AXB-Degustacion-Promocion 2x1 Caminata por los senderos-Camino del viejo bosque/Lothlórien/La Comarca
+PORCENTUAL-Degustacion-Promocion Porcentual-5-Montañas Azules/Camino del viejo bosque
+PORCENTUAL-Degustacion-Promocion Porcentual-35-La Comarca/Cardolan/Isengard
+PORCENTUAL-Degustacion-Promocion Porcentual-15-Lothlórien/La Comarca/Camino del viejo bosque
+ABSOLUTA-Degustacion-Promocion Absoluta-40-Pinnath Gelin/Lothlórien/Montañas Azules
+ABSOLUTA-Degustacion-Promocion Absoluta-70-Cardolan/Isengard/Montañas Azules
+ABSOLUTA-Degustacion-Promocion Absoluta-20-La Comarca/Isengard
+AXB-Paisaje-Promocion 2x1-Minas Tirith/Tierras Pardas/Minas Morgul
+AXB-Paisaje-Promocion 2x1-Colinas de Hierro/Abismo de Helm/Torre Oscura
+AXB-Paisaje-Promocion 2x1s-Harondor/Abismo de Helm/Belfalas
+PORCENTUAL-Paisaje-Promocion Porcentual-5-Torre Oscura/Colinas de Hierro
+PORCENTUAL-Paisaje-Promocion Porcentual-35-Harondor/Tierras Pardas/Puertos de Umbar
+PORCENTUAL-Paisaje-Promocion Porcentual-15-Torre Oscura/Harondor
+ABSOLUTA-Paisaje-Promocion Absoluta-50-Tierras Pardas/Belfalas/Erebor
+ABSOLUTA-Paisaje-Promocion Absoluta-60-Tierras Pardas/Puertos de Umbar
+ABSOLUTA-Paisaje-Promocion Absoluta-80-Puertos de Umbar/Colinas de Hierro/Abismo de Helm/Minas Tirith

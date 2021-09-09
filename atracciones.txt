@@ -1,16 +1,13 @@
-Moria-10-2-6-Aventura
-Minas Tirith-5-2.5-25-Paisaje
-La Comarca-3-6.5-150-Degustación
 Mordor-25-3-4-Aventura
-Abismo de Helm-5-2-15-Paisaje
-Lothlórien-35-1-30-Degustación
-Erebor-12-3-32-Paisaje
+Moria-10-2-6-Aventura
 Bosque Negro-3-4-12-Aventura
 Bahia de Forochel-20-3-40-Aventura
 Montañas de Angmar-15-1.5-100-Aventura
 Montañas Asperas-40-5-50-Aventura
 Meseta de Gorgoroth-10-2-20-Aventura
 Mar de Nurnen-50-3-100-Aventura
+Lothlórien-35-1-30-Degustación
+La Comarca-30-6.5-150-Degustación
 Camino del viejo bosque-20-2-50-Degustacion
 Isengard-40-3-40-Degustacion
 Montañas Azules-20-2-30-Degustacion
@@ -23,4 +20,6 @@ Minas Morgul-30-2-30-Paisaje
 Belfalas-40-3-20-Paisaje
 Tierras Pardas-80-5-30-Paisaje
 Colinas de Hierro-40-4-30-Paisaje
-
+Abismo de Helm-25-2-15-Paisaje
+Erebor-20-3-32-Paisaje
+Minas Tirith-25-2.5-25-Paisaje
