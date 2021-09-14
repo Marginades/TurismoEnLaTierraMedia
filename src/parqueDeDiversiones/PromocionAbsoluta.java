@@ -1,7 +1,6 @@
 package parqueDeDiversiones;
 
 import java.util.LinkedList;
-import java.util.List;
 
 public class PromocionAbsoluta extends Promocion {
 	private int descuento;
@@ -35,4 +34,7 @@ public class PromocionAbsoluta extends Promocion {
 			throw new MontoInvalidoException("El monto debe ser mayor a 0");
 		this.descuento = precio;
 	}
+
+
+
 }

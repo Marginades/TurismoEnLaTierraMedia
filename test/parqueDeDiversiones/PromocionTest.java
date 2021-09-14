@@ -1,6 +1,7 @@
 package parqueDeDiversiones;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -77,7 +78,7 @@ public class PromocionTest {
 	@Test
 	public void creacionTestPromocionPorcentual() {
 		assertEquals(packAventura.getTipo(), TipoDeAtraccion.AVENTURA);
-		assertEquals(packAventura.getNombre(), "");
+		assertEquals("Pack Aventura", packAventura.getNombre());
 		assertTrue(((Promocion) packAventura).getAtracciones().equals(aventura));
 		assertEquals(((PromocionPorcentual) packAventura).getDescuento(), 0.2, 0);
 	}
@@ -85,7 +86,7 @@ public class PromocionTest {
 	@Test
 	public void creacionTestPromocionAbsoluta() {
 		assertEquals(packDegustacion.getTipo(), TipoDeAtraccion.DEGUSTACION);
-		assertEquals(packDegustacion.getNombre(), "");
+		assertEquals("Pack Degustación",packDegustacion.getNombre());
 		assertEquals(((Promocion) packDegustacion).getAtracciones(), degustacion);
 		assertEquals(((PromocionAbsoluta)packDegustacion).getDescuento(), 36);
 	}
@@ -93,7 +94,7 @@ public class PromocionTest {
 	@Test
 	public void creacionTestPromocionAXB() {
 		assertEquals(packPaisajes.getTipo(), TipoDeAtraccion.PAISAJE);
-		assertEquals(packPaisajes.getNombre(), "");
+		assertEquals("Pack Contemplación", packPaisajes.getNombre());
 		assertEquals(((Promocion) packPaisajes).getAtracciones(), paisaje);
 		assertEquals(((PromocionAXB) packPaisajes).getAtraccionGratis(), (Atraccion) erebor);
 	}
@@ -146,5 +147,25 @@ public class PromocionTest {
 		assertTrue(packPaisajes.hayCupo());
 	}
 	
+	@Test
+	public void esOContienePromocion_siContiene() {
+		assertTrue(packAventura.esOContiene(mordor));
+	}
+	@Test
+	public void esOContienePromocion_noContiene() {
+		assertFalse(packAventura.esOContiene(lothorien));
+	}
+	
+	@Test
+	public void esOContienePromocionAXB_siContiene() {
+		assertTrue(packPaisajes.esOContiene(abismoDeHelm));
+		assertTrue(packPaisajes.esOContiene(erebor));
+	}
+	@Test
+	public void esOContienePromocionAXB_noContiene() {
+		assertFalse(packPaisajes.esOContiene(mordor));
+		
+	}
 
+	
 }

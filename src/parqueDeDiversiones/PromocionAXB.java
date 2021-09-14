@@ -46,6 +46,20 @@ public class PromocionAXB extends Promocion{
 			throw new TipoInvalidoException("La atraccion debe ser del mismo tipo que la promoción");
 		this.atraccionGratis = atraccionGratis;
 	}
+
 	
+	@Override
+	public boolean esOContiene(Comprable atraccion) {
+		if (!atraccion.equals(this.atraccionGratis)) {
 	
+		for (Comprable a : this.atracciones) {
+			if (atraccion.equals(a)) {
+				return true;
+			}
+		}
+
+		return false;
+	}  else {return true;}
+	
+	}
 }

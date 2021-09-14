@@ -79,4 +79,12 @@ public class Atraccion implements Comprable{
 		return "Llevá " + this.nombre + " por " + this.costo + " monedas de oro" + "(Duración: " + this.duracion + ")";
 	}
 
+	@Override
+	public boolean esOContiene(Comprable atraccion) {
+		if (atraccion.equals(this)) {return true;} else {return false;}
+		
+	}
+
+
+
 }

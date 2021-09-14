@@ -18,4 +18,7 @@ public interface Comprable {
 	public void comprarLugar();
 
 	public boolean esPromocion();
+
+	public boolean esOContiene(Comprable atraccion);
+	
 }
