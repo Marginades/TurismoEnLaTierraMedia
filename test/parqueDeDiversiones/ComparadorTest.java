@@ -31,6 +31,8 @@ public class ComparadorTest {
 		paisaje.add((Atraccion) minasTirith);
 		paisaje.add((Atraccion) abismoDeHelm);
 		
+		//agregar otro pack degustacion
+		
 		Comprable packDegustacion = new PromocionAbsoluta(TipoDeAtraccion.DEGUSTACION, degustacion, "Pack Degustación", 36);
 		Comprable packPaisajes = new PromocionAXB(TipoDeAtraccion.PAISAJE, paisaje, "Pack Contemplación", (Atraccion) erebor);
 		

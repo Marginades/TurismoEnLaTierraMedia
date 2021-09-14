@@ -1,11 +1,12 @@
 package parqueDeDiversiones;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class PromocionPorcentual extends Promocion{
 	private double descuento;
 
-	public PromocionPorcentual(TipoDeAtraccion tipo, List<Atraccion> atracciones, String nombre, double descuento) {
+	public PromocionPorcentual(TipoDeAtraccion tipo, String nombre, double descuento, LinkedList<Comprable> atracciones) {
 		super(tipo, atracciones, nombre);
 		this.setDescuento(descuento);
 	}
@@ -15,7 +16,7 @@ public class PromocionPorcentual extends Promocion{
 	@Override
 	public String toString() {
 		String impresion = "Pack " + this.nombre + ": ";
-		for (Atraccion a : atracciones) {
+		for (Comprable a : atracciones) {
 			impresion += a.getNombre() + ", ";
 		}
 		impresion += " con un " + this.descuento + "% de descuento si se llevan ambas";

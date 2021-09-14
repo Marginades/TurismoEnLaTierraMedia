@@ -1,11 +1,12 @@
 package parqueDeDiversiones;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class PromocionAXB extends Promocion{
 	private Atraccion atraccionGratis;
 
-	public PromocionAXB(TipoDeAtraccion tipo, List<Atraccion> atracciones, String nombre, Atraccion atraccionGratis) {
+	public PromocionAXB(TipoDeAtraccion tipo, String nombre, Atraccion atraccionGratis, LinkedList<Comprable> atracciones) {
 		super(tipo, atracciones, nombre);
 		this.setAtraccionGratis(atraccionGratis);
 	}
@@ -15,7 +16,7 @@ public class PromocionAXB extends Promocion{
 	@Override
 	public String toString() {
 		String impresion = "Pack " + this.nombre + ": comprando";
-		for (Atraccion a : atracciones) {
+		for (Comprable a : atracciones) {
 			impresion += a.getNombre() + ", ";
 		}
 		impresion += this.atraccionGratis + " es gratis";

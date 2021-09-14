@@ -44,4 +44,8 @@ public class Usuario {
 	public TipoDeAtraccion getPreferencia() {
 		return this.preferencia;
 	}
+	
+	public boolean estaEnCero() {
+		return this.disponibilidad == 0 || this.presupuesto == 0;
+	}
 }

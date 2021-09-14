@@ -8,11 +8,12 @@ import java.util.List;
 
 public class AdministradorDeArchivos {
 
-	private List<Atraccion> atracciones = new LinkedList<Atraccion>();
-	private List<Promocion> promociones = new LinkedList<Promocion>();
-	private List<Usuario> usuarios = new LinkedList<Usuario>();
+	private static List<Comprable> atracciones = new LinkedList<Comprable>();
+	private static List<Comprable> promociones = new LinkedList<Comprable>();
+	private static List<Comprable> productos = new LinkedList<Comprable>();
+	private static List<Usuario> usuarios = new LinkedList<Usuario>();
 
-	public List<Atraccion> cargarAtracciones() {
+	public static List<Comprable> cargarAtracciones() {
 
 		FileReader fr = null;
 		BufferedReader br = null;
@@ -39,6 +40,7 @@ public class AdministradorDeArchivos {
 			e.printStackTrace();
 		} finally {
 			try {
+				
 				if (fr != null) {
 
 					fr.close();
@@ -51,7 +53,7 @@ public class AdministradorDeArchivos {
 		return atracciones;
 	}
 
-	public List<Promocion> cargarPromociones() {
+	public static List<Comprable> cargarPromociones() {
 
 		FileReader fr = null;
 		BufferedReader br = null;
@@ -61,61 +63,38 @@ public class AdministradorDeArchivos {
 			br = new BufferedReader(fr);
 			String linea;
 			while ((linea = br.readLine()) != null) {
+
 				String[] propiedadesDeLaPromocion = linea.split("-");
-
-				if (propiedadesDeLaPromocion[0] == "AXB") {
-					String[] listaDeAtracciones = propiedadesDeLaPromocion[3].split("/");
-					LinkedList<Atraccion> atraccionesDeLaPromo = new LinkedList<Atraccion>();
-					TipoDeAtraccion tipoPromocion = TipoDeAtraccion.valueOf(propiedadesDeLaPromocion[1]);
-					String nombrePromocion = propiedadesDeLaPromocion[2];
-
-					for (int i = 0; i < listaDeAtracciones.length; i++) {
-						for (Atraccion c : atracciones) {
-							if (listaDeAtracciones[i] == c.getNombre()) {
-								atraccionesDeLaPromo.add(c);
-							}
+				String[] listaDeAtracciones = propiedadesDeLaPromocion[4].split("/");
+				LinkedList<Comprable> atraccionesDeLaPromo = new LinkedList<Comprable>();
+				TipoDeAtraccion tipoPromocion = TipoDeAtraccion.valueOf(propiedadesDeLaPromocion[1]);
+				String nombrePromocion = propiedadesDeLaPromocion[2];
+				
+				for (int i = 0; i < listaDeAtracciones.length; i++) {
+					for (Comprable c : atracciones) {
+						if (listaDeAtracciones[i].equals(c.getNombre())) {
+							atraccionesDeLaPromo.add(c);
 						}
 					}
-					promociones.add(new PromocionAXB(tipoPromocion, nombrePromocion, atraccionesDeLaPromo,
-							atraccionesDeLaPromo.getLast()));
-					atraccionesDeLaPromo = null;
 				}
+				if (propiedadesDeLaPromocion[0] == "AXB") {
+					//falta método que corrobore que la atraccion de regalo existe en la lista de Atracciones
+					promociones.add(new PromocionAXB(tipoPromocion, nombrePromocion, null, atraccionesDeLaPromo));
 
-				if (propiedadesDeLaPromocion[0] == "PORCENTUAL") {
-					String[] listaDeAtracciones = propiedadesDeLaPromocion[4].split("/");
-					LinkedList<Atraccion> atraccionesDeLaPromo = new LinkedList<Atraccion>();
-					TipoDeAtraccion tipoPromocion = TipoDeAtraccion.valueOf(propiedadesDeLaPromocion[1]);
-					String nombrePromocion = propiedadesDeLaPromocion[2];
+				}else if (propiedadesDeLaPromocion[0] == "PORCENTUAL") {
 					Double descuentoPorcentual = Double.parseDouble(propiedadesDeLaPromocion[3]);
-					for (int i = 0; i < listaDeAtracciones.length; i++) {
-						for (Atraccion c : atracciones) {
-							if (listaDeAtracciones[i] == c.getNombre()) {
-								atraccionesDeLaPromo.add(c);
-							}
-						}
-					}
 					promociones.add(new PromocionPorcentual(tipoPromocion, nombrePromocion, descuentoPorcentual,
 							atraccionesDeLaPromo));
-					atraccionesDeLaPromo = null;
-				}
-				if (propiedadesDeLaPromocion[0] == "ABSOLUTA") {
-					String[] listaDeAtracciones = propiedadesDeLaPromocion[4].split("/");
-					LinkedList<Atraccion> atraccionesDeLaPromo = new LinkedList<Atraccion>();
-					TipoDeAtraccion tipoPromocion = TipoDeAtraccion.valueOf(propiedadesDeLaPromocion[1]);
-					String nombrePromocion = propiedadesDeLaPromocion[2];
-					int descuentoAbsoluto = Integer.parseInt(propiedadesDeLaPromocion[3]);
-					for (int i = 0; i < listaDeAtracciones.length; i++) {
-						for (Atraccion c : atracciones) {
-							if (listaDeAtracciones[i] == c.getNombre()) {
-								atraccionesDeLaPromo.add(c);
-							}
-						}
-					}
-					promociones.add(new PromocionAbsoluta(tipoPromocion, nombrePromocion, descuentoAbsoluto,
-							atraccionesDeLaPromo));
-					atraccionesDeLaPromo = null;
 				}
 
+				else if (propiedadesDeLaPromocion[0] == "ABSOLUTA") {
+					int descuentoAbsoluto = Integer.parseInt(propiedadesDeLaPromocion[3]);
+					promociones.add(new PromocionAbsoluta(tipoPromocion, nombrePromocion, descuentoAbsoluto,
+							atraccionesDeLaPromo));
+
+				}
+				
+				atraccionesDeLaPromo = null;
 			}
 
 		} catch (IOException e) {
@@ -131,11 +110,11 @@ public class AdministradorDeArchivos {
 				e2.printStackTrace();
 			}
 		}
+
 		return promociones;
 	}
 
-
-	public List<Usuario> cargarUsuarios() {
+	public static List<Usuario> cargarUsuarios() {
 
 		FileReader fr = null;
 		BufferedReader br = null;
@@ -171,5 +150,11 @@ public class AdministradorDeArchivos {
 			}
 		}
 		return usuarios;
+	}
+	
+	public static List<Comprable> cargarProductos(){
+		productos.addAll(cargarPromociones());
+		productos.addAll(cargarAtracciones());
+		return productos;
 	}
 }

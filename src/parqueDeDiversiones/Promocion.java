@@ -3,19 +3,19 @@ package parqueDeDiversiones;
 import java.util.List;
 
 public abstract class Promocion implements Comprable{
-	protected List<Atraccion> atracciones;
+	protected List<Comprable> atracciones;
 	protected TipoDeAtraccion tipo;
 	protected String nombre;
 
 	//Constructor
-	public Promocion(TipoDeAtraccion tipo, List<Atraccion> atracciones, String nombre) {
+	public Promocion(TipoDeAtraccion tipo, List<Comprable> atracciones, String nombre) {
 		this.tipo = tipo;
 		this.nombre = nombre;
 		this.atracciones = this.setAtracciones(atracciones);
 	}
 	
-	private List<Atraccion> setAtracciones(List<Atraccion> atracciones) {
-		for (Atraccion a : atracciones) {
+	private List<Comprable> setAtracciones(List<Comprable> atracciones) {
+		for (Comprable a : atracciones) {
 			if(a.getTipo() != this.tipo) {
 				throw new TipoInvalidoException("Una de las atracciones ingresadas no es del mismo tipo que la promcion");
 			}
@@ -23,7 +23,7 @@ public abstract class Promocion implements Comprable{
 		return atracciones;
 	}
 	
-	protected List<Atraccion> getAtracciones() { return this.atracciones; }
+	protected List<Comprable> getAtracciones() { return this.atracciones; }
 	
 	//Metodos Overrride de Comprable
 	@Override
@@ -35,7 +35,7 @@ public abstract class Promocion implements Comprable{
 	@Override
 	public double getCosto() {
 		int contador = 0;
-		for (Atraccion atraccion : this.atracciones) {
+		for (Comprable atraccion : this.atracciones) {
 			contador += atraccion.getCosto();
 		}
 		return contador;
@@ -44,7 +44,7 @@ public abstract class Promocion implements Comprable{
 	@Override
 	public double getDuracion() {
 		double duracion = 0;
-		for (Atraccion a : this.atracciones) {
+		for (Comprable a : this.atracciones) {
 				duracion += a.getDuracion();	
 		}
 		return duracion;
@@ -52,7 +52,7 @@ public abstract class Promocion implements Comprable{
 
 	@Override
 	public boolean hayCupo() {
-		for (Atraccion a : this.atracciones) {
+		for (Comprable a : this.atracciones) {
 			if (!a.hayCupo()) {
 				return false;	
 			}
@@ -63,7 +63,7 @@ public abstract class Promocion implements Comprable{
 	@Override
 	public int getEntradasVendidas() { //aca hay algo raro revisar. Esto devuelve todas las entradas de cada atraccion, no solo las cubiertas por la promocion
 		int entradas = 0;
-		for (Atraccion atraccion : this.atracciones) {
+		for (Comprable atraccion : this.atracciones) {
 				entradas += atraccion.getEntradasVendidas();
 		}
 		return entradas;
@@ -71,7 +71,7 @@ public abstract class Promocion implements Comprable{
 
 	@Override
 	public void comprarLugar() {
-		for (Atraccion a : this.atracciones) {
+		for (Comprable a : this.atracciones) {
 			a.comprarLugar(); //este metodo ya captura la excepcion en la clase atraccion
 		}
 	}
