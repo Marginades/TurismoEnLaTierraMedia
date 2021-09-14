@@ -23,9 +23,9 @@ public class PromocionTest {
 	Comprable bosqueNegro;
 	Comprable atraccionMalConstruida;
 	
-	List<Atraccion> aventura;
-	List<Atraccion> degustacion;
-	List<Atraccion> paisaje;
+	LinkedList<Atraccion> aventura;
+	LinkedList<Atraccion> degustacion;
+	LinkedList<Atraccion> paisaje;
 	
 	Comprable packAventura;
 	Comprable packDegustacion;
@@ -61,9 +61,9 @@ public class PromocionTest {
 		paisaje.add((Atraccion) abismoDeHelm);
 		
 		//PROMOCIONES
-		packAventura = new PromocionPorcentual(TipoDeAtraccion.AVENTURA, aventura, "", 0.2);
-		packDegustacion = new PromocionAbsoluta(TipoDeAtraccion.DEGUSTACION, degustacion, "", 36);
-		packPaisajes = new PromocionAXB(TipoDeAtraccion.PAISAJE, paisaje, "", (Atraccion) erebor);
+		packAventura = new PromocionPorcentual(TipoDeAtraccion.AVENTURA, "", 0.2, aventura);
+		packDegustacion = new PromocionAbsoluta(TipoDeAtraccion.DEGUSTACION, "", 36, degustacion);
+		packPaisajes = new PromocionAXB(TipoDeAtraccion.PAISAJE, "", paisaje, (Atraccion) erebor);
 	}
 
 	//Testeo de constructores
@@ -146,5 +146,30 @@ public class PromocionTest {
 		assertTrue(packPaisajes.hayCupo());
 	}
 	
+	//Testeo de comprarLugar en los 3 tipos de promociones
+	@Test
+	public void comprarLugarTestPromocionPorcentual() {
+		packAventura.comprarLugar();
+		assertEquals(1, mordor.getEntradasVendidas());
+		assertEquals(1, bosqueNegro.getEntradasVendidas());
+		assertEquals(0, laComarca.getEntradasVendidas());
+	}
+	
+	@Test
+	public void comprarLugarTestPromocionAbsoluta() {
+		packDegustacion.comprarLugar();
+		assertEquals(0, bosqueNegro.getEntradasVendidas());
+		assertEquals(1, laComarca.getEntradasVendidas());
+		assertEquals(1, lothorien.getEntradasVendidas());
+	}
+	
+	@Test
+	public void comprarLugarTestPromocionAXB() {
+		packPaisajes.comprarLugar();
+		assertEquals(0, bosqueNegro.getEntradasVendidas());
+		assertEquals(1, minasTirith.getEntradasVendidas());
+		assertEquals(1, abismoDeHelm.getEntradasVendidas());
+		assertEquals(1, erebor.getEntradasVendidas());
+	}
 
 }

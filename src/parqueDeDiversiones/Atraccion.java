@@ -67,6 +67,23 @@ public class Atraccion implements Comprable{
 			throw new CupoMaximoAlcanzadoException("No Hay Mas Lugar");
 		this.entradasVendidas += 1;
 	}
+
+	@Override
+	public boolean esOContiene(Comprable c) {
+		return this.equals(c);
+	}
+
+	@Override
+	public boolean esComprablePor(Usuario user) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean esPromocion() {
+		return false;
+	}
+
 	
 	//Imprimir
 	//@Override
