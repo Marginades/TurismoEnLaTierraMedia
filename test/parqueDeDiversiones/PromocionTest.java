@@ -61,9 +61,9 @@ public class PromocionTest {
 		paisaje.add((Atraccion) abismoDeHelm);
 		
 		//PROMOCIONES
-		packAventura = new PromocionPorcentual(TipoDeAtraccion.AVENTURA, aventura, "", 0.2);
-		packDegustacion = new PromocionAbsoluta(TipoDeAtraccion.DEGUSTACION, degustacion, "", 36);
-		packPaisajes = new PromocionAXB(TipoDeAtraccion.PAISAJE, paisaje, "", (Atraccion) erebor);
+		packAventura = new PromocionPorcentual(TipoDeAtraccion.AVENTURA, aventura, "Pack Aventura", 0.2);
+		packDegustacion = new PromocionAbsoluta(TipoDeAtraccion.DEGUSTACION, degustacion, "Pack Degustación", 36);
+		packPaisajes = new PromocionAXB(TipoDeAtraccion.PAISAJE, paisaje, "Pack Contemplación", (Atraccion) erebor);
 	}
 
 	//Testeo de constructores

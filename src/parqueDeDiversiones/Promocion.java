@@ -75,4 +75,9 @@ public abstract class Promocion implements Comprable{
 			a.comprarLugar(); //este metodo ya captura la excepcion en la clase atraccion
 		}
 	}
+	
+	@Override
+	public boolean esPromocion(){
+		return true;
+	}
 }

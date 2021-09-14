@@ -68,10 +68,15 @@ public class Atraccion implements Comprable{
 		this.entradasVendidas += 1;
 	}
 	
+	@Override
+	public boolean esPromocion(){
+		return false;
+	}
+	
 	//Imprimir
-	//@Override
-	//public String toString() {
-	//	return ""; //Llevá " + this.nombre + " por " + this.costo + " monedas de oro";
-	//}
+	@Override
+	public String toString() {
+		return "Llevá " + this.nombre + " por " + this.costo + " monedas de oro" + "(Duración: " + this.duracion + ")";
+	}
 
 }

@@ -17,5 +17,5 @@ public interface Comprable {
 
 	public void comprarLugar();
 
-
+	public boolean esPromocion();
 }

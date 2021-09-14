@@ -24,8 +24,11 @@ public class Usuario {
 		this.disponibilidad -= producto.getDuracion();
 		itinerario.add(producto);
 	}
-	//no tendrá que devolver un booleano?
-
+	
+	public boolean puedeComprar(Comprable producto) {
+		return this.presupuesto >= producto.getCosto() && this.disponibilidad >= producto.getDuracion();
+	}
+	
 	private void setPresupuesto(int presupuesto) {
 		if(presupuesto <= 0)
 			throw new MontoInvalidoException("El presupuesto debe ser mayor a 0");
@@ -36,5 +39,9 @@ public class Usuario {
 		if(disponibilidad <= 0)
 			throw new DuracionInvalidaException("La disponibilidad debe ser mayor a 0");
 		this.disponibilidad = disponibilidad;
+	}
+	
+	public TipoDeAtraccion getPreferencia() {
+		return this.preferencia;
 	}
 }
