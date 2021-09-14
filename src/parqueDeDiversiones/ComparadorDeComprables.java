@@ -33,28 +33,4 @@ public class ComparadorDeComprables implements Comparator<Comprable>{
 			}
 		}
 	}
-	
-	
-	public static void main(String[] args) {
-		Usuario norbert = new Usuario("Norbert", 20, 5.5, TipoDeAtraccion.AVENTURA);
-		
-		Comprable moria = new Atraccion("Moria", 10, 2, 6, TipoDeAtraccion.AVENTURA);
-		Comprable minasTirith = new Atraccion("Minas Tirith", 5, 2.5, 25, TipoDeAtraccion.PAISAJE);
-		Comprable laComarca = new Atraccion("La Comarca", 5, 6.5, 150, TipoDeAtraccion.DEGUSTACION);
-		Comprable mordor = new Atraccion("Mordor", 25, 3, 4, TipoDeAtraccion.AVENTURA);
-			
-		List<Comprable> atracciones = new LinkedList<Comprable>();
-		atracciones.add(moria);
-		atracciones.add(minasTirith);
-		atracciones.add(laComarca);
-		atracciones.add(mordor);
-		
-		for (Comprable c : atracciones) System.out.println(c);
-		
-		atracciones.sort(new ComparadorDeComprables(norbert.getPreferencia()));
-		
-		System.out.println("\nordenar\n");
-		
-		for (Comprable c : atracciones) System.out.println(c);
-	}
 }
