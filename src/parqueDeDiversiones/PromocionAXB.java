@@ -55,4 +55,12 @@ public class PromocionAXB extends Promocion{
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	@Override
+	public void comprarLugar() {
+		for (Comprable a : this.atracciones) {
+			a.comprarLugar(); 
+		}
+		this.atraccionGratis.comprarLugar();
+	}
 }

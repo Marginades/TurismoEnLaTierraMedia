@@ -34,7 +34,7 @@ public class AtraccionesTest {
 	public void CreacionTest() {
 		assertNotNull(abismoDeHelm);
 		assertEquals(moria.getNombre(), "Moria");
-		assertEquals(moria.getCosto(), 10);
+		assertEquals(moria.getCosto(), 10, 0);
 		assertEquals(moria.getDuracion(), 2, 0);
 		assertEquals(((Atraccion) moria).getCupoMaximo(), 6);
 		assertEquals(moria.getTipo(), TipoDeAtraccion.AVENTURA);

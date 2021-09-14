@@ -23,9 +23,9 @@ public class PromocionTest {
 	Comprable bosqueNegro;
 	Comprable atraccionMalConstruida;
 	
-	LinkedList<Atraccion> aventura;
-	LinkedList<Atraccion> degustacion;
-	LinkedList<Atraccion> paisaje;
+	LinkedList<Comprable> aventura;
+	LinkedList<Comprable> degustacion;
+	LinkedList<Comprable> paisaje;
 	
 	Comprable packAventura;
 	Comprable packDegustacion;
@@ -48,22 +48,22 @@ public class PromocionTest {
 		
 				
 		//LISTA DE ATRACCIONES
-		aventura = new LinkedList<Atraccion>();
+		aventura = new LinkedList<Comprable>();
 		aventura.add((Atraccion) bosqueNegro);
 		aventura.add((Atraccion) mordor);
 		
-		degustacion = new LinkedList<Atraccion>();
+		degustacion = new LinkedList<Comprable>();
 		degustacion.add((Atraccion) lothorien);
 		degustacion.add((Atraccion) laComarca);
 		
-		paisaje = new LinkedList<Atraccion>();
+		paisaje = new LinkedList<Comprable>();
 		paisaje.add((Atraccion) minasTirith);
 		paisaje.add((Atraccion) abismoDeHelm);
 		
 		//PROMOCIONES
 		packAventura = new PromocionPorcentual(TipoDeAtraccion.AVENTURA, "", 0.2, aventura);
 		packDegustacion = new PromocionAbsoluta(TipoDeAtraccion.DEGUSTACION, "", 36, degustacion);
-		packPaisajes = new PromocionAXB(TipoDeAtraccion.PAISAJE, "", paisaje, (Atraccion) erebor);
+		packPaisajes = new PromocionAXB(TipoDeAtraccion.PAISAJE, "", erebor, paisaje);
 	}
 
 	//Testeo de constructores
