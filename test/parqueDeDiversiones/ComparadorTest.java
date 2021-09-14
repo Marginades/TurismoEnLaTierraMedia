@@ -23,18 +23,18 @@ public class ComparadorTest {
 		Comprable abismoDeHelm = new Atraccion("Abismo de Helm", 5, 2, 15, TipoDeAtraccion.PAISAJE);
 		Comprable lothorien = new Atraccion("Lothorien", 35, 1, 30, TipoDeAtraccion.DEGUSTACION);
 		
-		List<Atraccion> degustacion = new LinkedList<Atraccion>();
-		degustacion.add((Atraccion) lothorien);
-		degustacion.add((Atraccion) laComarca);
+		LinkedList<Comprable> degustacion = new LinkedList<Comprable>();
+		degustacion.add((Comprable) lothorien);
+		degustacion.add((Comprable) laComarca);
 		
-		List<Atraccion> paisaje = new LinkedList<Atraccion>();
-		paisaje.add((Atraccion) minasTirith);
-		paisaje.add((Atraccion) abismoDeHelm);
+		LinkedList<Comprable> paisaje = new LinkedList<Comprable>();
+		paisaje.add((Comprable) minasTirith);
+		paisaje.add((Comprable) abismoDeHelm);
 		
 		//agregar otro pack degustacion
 		
-		Comprable packDegustacion = new PromocionAbsoluta(TipoDeAtraccion.DEGUSTACION, degustacion, "Pack Degustación", 36);
-		Comprable packPaisajes = new PromocionAXB(TipoDeAtraccion.PAISAJE, paisaje, "Pack Contemplación", (Atraccion) erebor);
+		Comprable packDegustacion = new PromocionAbsoluta(TipoDeAtraccion.DEGUSTACION, "Pack Degustación", 36, degustacion);
+		Comprable packPaisajes = new PromocionAXB(TipoDeAtraccion.PAISAJE, "Pack Contemplación",(Comprable) erebor, paisaje);
 		
 		productos.add(moria);
 		productos.add(minasTirith);

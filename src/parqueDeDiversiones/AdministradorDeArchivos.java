@@ -12,6 +12,20 @@ public class AdministradorDeArchivos {
 	private static List<Comprable> promociones = new LinkedList<Comprable>();
 	private static List<Comprable> productos = new LinkedList<Comprable>();
 	private static List<Usuario> usuarios = new LinkedList<Usuario>();
+	
+	public static Comprable pescadorDeAtracciones(String atraccion) {
+		
+		Comprable a1 = null;
+		
+		for (Comprable c : AdministradorDeArchivos.atracciones) {
+				if (atraccion.equals(c.getNombre())) {
+					a1 = c;
+				}
+
+			}
+		return a1;
+
+		}
 
 	public static List<Comprable> cargarAtracciones() {
 
@@ -71,15 +85,12 @@ public class AdministradorDeArchivos {
 				String nombrePromocion = propiedadesDeLaPromocion[2];
 				
 				for (int i = 0; i < listaDeAtracciones.length; i++) {
-					for (Comprable c : atracciones) {
-						if (listaDeAtracciones[i].equals(c.getNombre())) {
-							atraccionesDeLaPromo.add(c);
-						}
-					}
+					atraccionesDeLaPromo.add(AdministradorDeArchivos.pescadorDeAtracciones(listaDeAtracciones[i]));	
 				}
+				
 				if (propiedadesDeLaPromocion[0] == "AXB") {
-					//falta método que corrobore que la atraccion de regalo existe en la lista de Atracciones
-					promociones.add(new PromocionAXB(tipoPromocion, nombrePromocion, null, atraccionesDeLaPromo));
+					Comprable atraccionGratis= AdministradorDeArchivos.pescadorDeAtracciones(propiedadesDeLaPromocion[3]);
+					promociones.add(new PromocionAXB(tipoPromocion, nombrePromocion, atraccionGratis, atraccionesDeLaPromo));
 
 				}else if (propiedadesDeLaPromocion[0] == "PORCENTUAL") {
 					Double descuentoPorcentual = Double.parseDouble(propiedadesDeLaPromocion[3]);

@@ -11,6 +11,7 @@ public class PromocionAbsoluta extends Promocion {
 		this.setPrecio(descuento);
 	}
 	
+	
 	public int getDescuento() { return this.descuento; }
 
 	@Override
