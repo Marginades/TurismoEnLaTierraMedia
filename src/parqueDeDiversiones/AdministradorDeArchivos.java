@@ -172,7 +172,7 @@ public class AdministradorDeArchivos {
 		productos.addAll(cargarPromociones());
 		return productos;
 	}
-	
+
 	public static void escribirItinerario(List<Usuario> usuarios, String file) throws IOException {
 		PrintWriter salida = new PrintWriter(new FileWriter(file));
 		for (Usuario u : usuarios) {

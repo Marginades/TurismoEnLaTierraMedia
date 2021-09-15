@@ -13,9 +13,7 @@ public class Usuario {
 	public Usuario(String nombre, double presupuesto, double disponibilidad, TipoDeAtraccion preferencia) {
 		this.nombre = nombre;
 		this.setPresupuesto(presupuesto);
-		;
 		this.setDisponibilidad(disponibilidad);
-		;
 		this.preferencia = preferencia;
 		this.itinerario = new LinkedList<Comprable>();
 	}
@@ -29,7 +27,7 @@ public class Usuario {
 		}
 	}
 
-	public void agregarAlItinerario(Comprable producto) {
+	private void agregarAlItinerario(Comprable producto) {
 		if (producto.esPromocion()) {
 			this.itinerario.addAll(((Promocion) producto).getAtracciones());
 		} else if (!producto.esPromocion()){
@@ -98,10 +96,9 @@ public class Usuario {
 	protected List<Comprable> getItinerario() {
 		return itinerario;
 	}
-
-	protected String getNombre() {
+	
+	public String getNombre(){
 		return nombre;
 	}
-	
 
 }

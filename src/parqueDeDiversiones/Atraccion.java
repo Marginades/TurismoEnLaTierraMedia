@@ -87,7 +87,7 @@ public class Atraccion implements Comprable{
 	//Imprimir
 	@Override
 	public String toString() {
-		return "Llevá " + this.nombre + " por " + this.costo + " monedas de oro \n Responde si o no";
+		return "Llevá " + this.nombre + " por " + this.costo + " monedas de oro";
 	}
 
 }
