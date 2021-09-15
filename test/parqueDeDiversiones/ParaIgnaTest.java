@@ -100,26 +100,35 @@ public class ParaIgnaTest {
 	}
 
 	@Test
-	public void testParaIgna() {
+	public void testParaIgna1() {
 		// Test nro1
 		//Si compra a1 no deberia poder comprar p2 porque incluye a1.
 		u1.comprar(a1);
 		assertTrue(u1.yaCompro(a1));
 		assertFalse(u1.puedeComprar(p2));
-		
+	}
+	
+	@Test
+	public void testParaIgna2() {
 		// Test nro2
-		//u1.comprar(p1);
-		//assertTrue(u1.yaCompro(a1));
-		//assertTrue(u1.yaCompro(a2));
-		//assertFalse(u1.puedeComprar(a2));
-		
+		u1.comprar(p1);
+		assertTrue(u1.yaCompro(a1));
+		assertTrue(u1.yaCompro(a2));
+		assertFalse(u1.puedeComprar(a2));
+	}
+	
+	@Test
+	public void testParaIgna3() {
 		// Test nro3
 		u1.comprar(p1);
 		assertFalse(u1.puedeComprar(p2));     
-		
+	}
+	
+	@Test
+	public void testParaIgna4() {
 		// Test nro4
-		//u1.comprar(p3);
-		//assertFalse(u1.puedeComprar(p4));
+		u1.comprar(p3);
+		assertFalse(u1.puedeComprar(p4));
 	}
 
 }
