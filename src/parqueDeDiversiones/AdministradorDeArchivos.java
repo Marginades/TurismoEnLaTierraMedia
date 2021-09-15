@@ -12,20 +12,20 @@ public class AdministradorDeArchivos {
 	private static List<Comprable> promociones = new LinkedList<Comprable>();
 	private static List<Comprable> productos = new LinkedList<Comprable>();
 	private static List<Usuario> usuarios = new LinkedList<Usuario>();
-	
-	public static Comprable pescadorDeAtracciones(String atraccion) {
-		
-		Comprable a1 = null;
-		
-		for (Comprable c : AdministradorDeArchivos.atracciones) {
-				if (atraccion.equals(c.getNombre())) {
-					a1 = c;
-				}
 
+	public static Comprable pescadorDeAtracciones(String atraccion) {
+
+		Comprable a1 = null;
+
+		for (Comprable c : AdministradorDeArchivos.atracciones) {
+			if (atraccion.equals(c.getNombre())) {
+				a1 = c;
 			}
-		return a1;
 
 		}
+		return a1;
+
+	}
 
 	public static List<Comprable> cargarAtracciones() {
 
@@ -54,7 +54,7 @@ public class AdministradorDeArchivos {
 			e.printStackTrace();
 		} finally {
 			try {
-				
+
 				if (fr != null) {
 
 					fr.close();
@@ -83,28 +83,30 @@ public class AdministradorDeArchivos {
 				LinkedList<Comprable> atraccionesDeLaPromo = new LinkedList<Comprable>();
 				TipoDeAtraccion tipoPromocion = TipoDeAtraccion.valueOf(propiedadesDeLaPromocion[1]);
 				String nombrePromocion = propiedadesDeLaPromocion[2];
-				
-				for (int i = 0; i < listaDeAtracciones.length; i++) {
-					atraccionesDeLaPromo.add(AdministradorDeArchivos.pescadorDeAtracciones(listaDeAtracciones[i]));	
-				}
-				
-				if (propiedadesDeLaPromocion[0] == "AXB") {
-					Comprable atraccionGratis= AdministradorDeArchivos.pescadorDeAtracciones(propiedadesDeLaPromocion[3]);
-					promociones.add(new PromocionAXB(tipoPromocion, nombrePromocion, atraccionGratis, atraccionesDeLaPromo));
 
-				}else if (propiedadesDeLaPromocion[0] == "PORCENTUAL") {
+				for (int i = 0; i < listaDeAtracciones.length; i++) {
+					atraccionesDeLaPromo.add(AdministradorDeArchivos.pescadorDeAtracciones(listaDeAtracciones[i]));
+				}
+
+				if (propiedadesDeLaPromocion[0].equals("AXB")) {
+					Comprable atraccionGratis = AdministradorDeArchivos
+							.pescadorDeAtracciones(propiedadesDeLaPromocion[3]);
+					promociones.add(
+							new PromocionAXB(tipoPromocion, nombrePromocion, atraccionGratis, atraccionesDeLaPromo));
+
+				} else if (propiedadesDeLaPromocion[0].equals("PORCENTUAL")) {
 					Double descuentoPorcentual = Double.parseDouble(propiedadesDeLaPromocion[3]);
 					promociones.add(new PromocionPorcentual(tipoPromocion, nombrePromocion, descuentoPorcentual,
 							atraccionesDeLaPromo));
 				}
 
-				else if (propiedadesDeLaPromocion[0] == "ABSOLUTA") {
+				else if (propiedadesDeLaPromocion[0].equals("ABSOLUTA")) {
 					int descuentoAbsoluto = Integer.parseInt(propiedadesDeLaPromocion[3]);
 					promociones.add(new PromocionAbsoluta(tipoPromocion, nombrePromocion, descuentoAbsoluto,
 							atraccionesDeLaPromo));
 
 				}
-				
+
 				atraccionesDeLaPromo = null;
 			}
 
@@ -162,11 +164,10 @@ public class AdministradorDeArchivos {
 		}
 		return usuarios;
 	}
-	
-	public static List<Comprable> cargarProductos(){
-		productos.addAll(cargarPromociones());
+
+	public static List<Comprable> cargarProductos() {
 		productos.addAll(cargarAtracciones());
+		productos.addAll(cargarPromociones());
 		return productos;
 	}
 }
-

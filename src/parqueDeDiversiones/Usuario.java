@@ -94,4 +94,9 @@ public class Usuario {
 		return itinerario;
 	}
 
+	protected String getNombre() {
+		return nombre;
+	}
+	
+
 }

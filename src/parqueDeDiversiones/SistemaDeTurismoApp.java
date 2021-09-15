@@ -30,8 +30,6 @@ public class SistemaDeTurismoApp {
 			}
 		}
 		sc.close();
-		// si se acepta usuario.comprar
-		// metodo estaEn0 (para usuario)
 	}
 }
 
