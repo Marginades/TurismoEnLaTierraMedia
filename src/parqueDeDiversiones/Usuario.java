@@ -20,9 +20,11 @@ public class Usuario {
 	}
 
 	public void comprar(Comprable producto) {
-		this.presupuesto -= producto.getCosto();
-		this.disponibilidad -= producto.getDuracion();
-		itinerario.add(producto);
+		if(this.puedeComprar(producto) && !this.yaCompro(producto)) {
+			this.presupuesto -= producto.getCosto();
+			this.disponibilidad -= producto.getDuracion();
+			itinerario.add(producto);
+		}
 	}
 	
 	public boolean puedeComprar(Comprable producto) {

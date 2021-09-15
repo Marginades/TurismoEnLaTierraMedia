@@ -8,16 +8,16 @@ import org.junit.Test;
 
 public class UsuarioTest {
 	
-	Usuario user;
+	Usuario userEn0;
 
 	@Before
 	public void setUp() throws Exception {
-		user = new Usuario("Jorge", 0, 0, TipoDeAtraccion.AVENTURA);
+		userEn0 = new Usuario("Pepito", 0, 0, TipoDeAtraccion.AVENTURA);
 	}
 
 	@Test
 	public void testEstaEnCero() {
-		assertTrue(user.estaEnCero());
+		assertTrue(userEn0.estaEnCero());
 	}
-
+	
 }
