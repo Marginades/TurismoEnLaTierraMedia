@@ -21,7 +21,7 @@ public class PromocionPorcentual extends Promocion {
 		for (Comprable a : atracciones) {
 			impresion += a.getNombre() + ", ";
 		}
-		impresion += " con un " + this.descuento + "% de descuento si se llevan ambas: TOTAL: " + this.getCosto() +"\n Responde si o no";
+		impresion += " con un " + this.descuento + "% de descuento si se llevan ambas: TOTAL: " + this.getCosto();
 		return impresion;
 	}
 

@@ -101,6 +101,6 @@ public abstract class Promocion implements Comprable {
 	//Imprimir
 	@Override
 	public String toString() {
-		return "Llevá " + this.getNombre() + " por " + this.getCosto() + " monedas de oro \n Responde si o no";
+		return "Llevá " + this.getNombre() + " por " + this.getCosto() + " monedas de oro";
 	}
 }

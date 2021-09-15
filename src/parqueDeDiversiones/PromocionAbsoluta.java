@@ -20,7 +20,7 @@ public class PromocionAbsoluta extends Promocion {
 		for (Comprable a : atracciones) {
 			impresion += a.getNombre() + ", ";
 		}
-		impresion += " a tan solo" + this.getCosto() + "\n Responde si o no";
+		impresion += " a tan solo" + this.getCosto();
 		return impresion;
 	}
 

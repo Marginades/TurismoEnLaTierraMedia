@@ -30,7 +30,7 @@ public class PromocionAXB extends Promocion {
 		for (Comprable a : atracciones) {
 			impresion += a.getNombre() + ", ";
 		}
-		impresion += this.atraccionGratis + " es gratis \n Responde si o no";
+		impresion += this.atraccionGratis + " es gratis";
 		return impresion;
 	}
 
