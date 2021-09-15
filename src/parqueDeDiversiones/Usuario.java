@@ -52,4 +52,9 @@ public class Usuario {
 	public boolean estaEnCero() {
 		return this.disponibilidad == 0 || this.presupuesto == 0;
 	}
+	
+	@Override
+	public String toString() {
+		return "El usuario " + this.nombre + "tiene preferencia por: " + this.preferencia;
+	}
 }

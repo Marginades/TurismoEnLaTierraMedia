@@ -1,5 +1,7 @@
 package parqueDeDiversiones;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.List;
 import java.util.Scanner;
 
@@ -7,13 +9,16 @@ public class SistemaDeTurismoApp {
 
 	private static List<Comprable> productos;
 	private static List<Usuario> usuarios;
+	
+	
+	static FileReader fr;
+	static BufferedReader br;
 
 	public static void main(String[] args) {
 		// lectura de un archivo
 		productos = AdministradorDeArchivos.cargarProductos();
 		usuarios = AdministradorDeArchivos.cargarUsuarios();
 		Scanner sc = new Scanner(System.in);
-
 		for (Usuario user : usuarios) {
 			if (!user.estaEnCero()) {
 				productos.sort(new ComparadorDeComprables(user.getPreferencia()));
@@ -26,7 +31,7 @@ public class SistemaDeTurismoApp {
 						} else
 							continue;
 					}
-				}
+				} 
 			}
 		}
 		sc.close();
@@ -40,3 +45,4 @@ public class SistemaDeTurismoApp {
 		// metodo estaEn0 (para usuario)
 	}
 }
+

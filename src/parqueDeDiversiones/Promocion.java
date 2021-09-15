@@ -68,8 +68,7 @@ public abstract class Promocion implements Comprable {
 	}
 
 	@Override
-	public int getEntradasVendidas() { // aca hay algo raro revisar. Esto devuelve todas las entradas de cada
-										// atraccion, no solo las cubiertas por la promocion
+	public int getEntradasVendidas() { 
 		int entradas = 0;
 		for (Comprable atraccion : this.atracciones) {
 			entradas += atraccion.getEntradasVendidas();

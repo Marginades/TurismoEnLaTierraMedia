@@ -65,4 +65,13 @@ public class PromocionAXB extends Promocion {
 		}
 		this.atraccionGratis.comprarLugar();
 	}
+	
+	@Override
+	public int getEntradasVendidas() { 
+		int entradas = 0;
+		for (Comprable atraccion : this.atracciones) {
+			entradas += atraccion.getEntradasVendidas();
+		}
+		return entradas + atraccionGratis.getEntradasVendidas();
+	}
 }
