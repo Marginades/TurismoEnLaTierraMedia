@@ -41,17 +41,76 @@ public class ParaIgnaTest {
 		p3 = new PromocionAXB(TipoDeAtraccion.AVENTURA, "", a2, l2);
 		p4 = new PromocionAbsoluta(TipoDeAtraccion.AVENTURA, "", 5, l3);
 	}
+	
+	@Test
+	public void testInicialComprarAtraccion() {
+		u1.comprar(a1);
+		assertEquals(1, a1.getEntradasVendidas());
+		assertEquals(90, u1.getPresupuesto(), 0);
+		assertEquals(97, u1.getDisponibilidad(), 0);
+		assertEquals(1, u1.getItinerario().size());
+		assertEquals(a1, u1.getItinerario().get(0));
+	}
+	
+	@Test
+	public void testInicialComprarPromocionAbsoluta() {
+		u1.comprar(p1);
+		assertEquals(1, a1.getEntradasVendidas());
+		assertEquals(1, a2.getEntradasVendidas());
+		assertEquals(0, a3.getEntradasVendidas());
+		
+		assertEquals(96, u1.getPresupuesto(), 0);
+		assertEquals(94.5, u1.getDisponibilidad(), 0);
+		
+		assertEquals(2, u1.getItinerario().size());
+		assertEquals(a1, u1.getItinerario().get(0));
+		assertEquals(a2, u1.getItinerario().get(1));
+	}
+	
+	@Test
+	public void testInicialComprarPromocionPorcentual() {
+		u1.comprar(p2);
+		assertEquals(1, a1.getEntradasVendidas());
+		assertEquals(0, a2.getEntradasVendidas());
+		assertEquals(1, a3.getEntradasVendidas());
+		
+		assertEquals(91.6, u1.getPresupuesto(), 0);
+		assertEquals(96, u1.getDisponibilidad(), 0);
+		
+		assertEquals(2, u1.getItinerario().size());
+		assertEquals(a1, u1.getItinerario().get(0));
+		assertEquals(a3, u1.getItinerario().get(1));
+	}
+	
+	@Test
+	public void testInicialComprarPromocionAXB() {
+		u1.comprar(p3);
+		assertEquals(1, a1.getEntradasVendidas());
+		assertEquals(1, a2.getEntradasVendidas());
+		assertEquals(1, a3.getEntradasVendidas());
+		assertEquals(0, a4.getEntradasVendidas());
+		
+		assertEquals(88, u1.getPresupuesto(), 0);
+		assertEquals(93.5, u1.getDisponibilidad(), 0);
+				
+		assertEquals(3, u1.getItinerario().size());
+		assertEquals(a1, u1.getItinerario().get(0));
+		assertEquals(a3, u1.getItinerario().get(1));
+		assertEquals(a2, u1.getItinerario().get(2));
+	}
 
 	@Test
 	public void testParaIgna() {
 		// Test nro1
 		//Si compra a1 no deberia poder comprar p2 porque incluye a1.
 		u1.comprar(a1);
-		assertEquals(1, a1.getEntradasVendidas());
-		//assertFalse(u1.puedeComprar(p2));
+		assertTrue(u1.yaCompro(a1));
+		assertFalse(u1.puedeComprar(p2));
 		
 		// Test nro2
 		//u1.comprar(p1);
+		//assertTrue(u1.yaCompro(a1));
+		//assertTrue(u1.yaCompro(a2));
 		//assertFalse(u1.puedeComprar(a2));
 		
 		// Test nro3

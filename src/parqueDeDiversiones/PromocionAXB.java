@@ -15,6 +15,14 @@ public class PromocionAXB extends Promocion {
 	public Comprable getAtraccionGratis() {
 		return this.atraccionGratis;
 	}
+	
+	@Override
+	protected List<Comprable> getAtracciones() {
+		LinkedList<Comprable> atraccionesTotales = new LinkedList<Comprable>();
+		atraccionesTotales.addAll(this.atracciones);
+		atraccionesTotales.add(this.getAtraccionGratis());
+		return atraccionesTotales;
+	}
 
 	@Override
 	public String toString() {

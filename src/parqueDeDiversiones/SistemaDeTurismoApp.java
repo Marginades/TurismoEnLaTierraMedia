@@ -30,13 +30,7 @@ public class SistemaDeTurismoApp {
 			}
 		}
 		sc.close();
-		// for de usuarios productos.sort
-		// recorremos lista de comprables y mostramos los que puede comprar
-		// fijarnos si acepta con
-		// sc = Scanner(System.in)
-		// sc.nextLine()
 		// si se acepta usuario.comprar
-
 		// metodo estaEn0 (para usuario)
 	}
 }
