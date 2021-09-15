@@ -2,7 +2,9 @@ package parqueDeDiversiones;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -165,9 +167,18 @@ public class AdministradorDeArchivos {
 		return usuarios;
 	}
 
-	public static List<Comprable> cargarProductos() {
+	public static List<Comprable> cargarProductos(){
 		productos.addAll(cargarAtracciones());
 		productos.addAll(cargarPromociones());
 		return productos;
 	}
+	
+	public static void escribirItinerario(List<Usuario> usuarios, String file) throws IOException {
+		PrintWriter salida = new PrintWriter(new FileWriter(file));
+		for (Usuario u : usuarios) {
+			salida.println(u.toString());
+		}
+		salida.close();
+	}
+
 }

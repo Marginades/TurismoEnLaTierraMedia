@@ -2,15 +2,15 @@ Mordor-25-3-4-Aventura
 Moria-10-2-6-Aventura
 Bosque Negro-3-4-12-Aventura
 Bahia de Forochel-20-3-40-Aventura
-MontaÃ±as de Angmar-15-1.5-100-Aventura
-MontaÃ±as Asperas-40-5-50-Aventura
+Montañas de Angmar-15-1.5-100-Aventura
+Montañas Asperas-40-5-50-Aventura
 Meseta de Gorgoroth-10-2-20-Aventura
 Mar de Nurnen-50-3-100-Aventura
-LothlÃ³rien-35-1-30-Degustacion
+Lothlórien-35-1-30-Degustacion
 La Comarca-30-6.5-150-Degustacion
 Camino del viejo bosque-20-2-50-Degustacion
 Isengard-40-3-40-Degustacion
-MontaÃ±as Azules-20-2-30-Degustacion
+Montañas Azules-20-2-30-Degustacion
 Cardolan-80-4-100-Degustacion
 Pinnath Gelin-30-2-50-Degustacion
 Harondor-50-3-30-Paisaje

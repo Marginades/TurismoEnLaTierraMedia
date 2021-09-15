@@ -79,7 +79,12 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "El usuario " + this.nombre + "tiene preferencia por: " + this.preferencia;
+		
+		String impresion = "Itinerario de " + this.nombre;
+		for(Comprable p : itinerario) {
+			impresion += p.getNombre();
+		}
+		return impresion;
 	}
 
 	protected double getPresupuesto() {

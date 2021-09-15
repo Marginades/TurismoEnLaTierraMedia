@@ -91,7 +91,7 @@ public class PromocionTest {
 	public void creacionTestPromocionAXB() {
 		assertEquals(packPaisajes.getTipo(), TipoDeAtraccion.PAISAJE);
 		assertEquals("Pack Contemplación", packPaisajes.getNombre());
-		assertEquals(((Promocion) packPaisajes).getAtracciones(), paisaje);
+		assertEquals(((Promocion) packPaisajes).getAtracciones().size(), 3);
 		assertEquals(((PromocionAXB) packPaisajes).getAtraccionGratis(), (Atraccion) erebor);
 	}
 
