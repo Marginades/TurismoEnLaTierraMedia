@@ -3,15 +3,18 @@ package parqueDeDiversiones;
 import java.util.LinkedList;
 import java.util.List;
 
-public class PromocionPorcentual extends Promocion{
+public class PromocionPorcentual extends Promocion {
 	private double descuento;
 
-	public PromocionPorcentual(TipoDeAtraccion tipo, String nombre, double descuento, LinkedList<Comprable> atracciones) {
+	public PromocionPorcentual(TipoDeAtraccion tipo, String nombre, double descuento,
+			LinkedList<Comprable> atracciones) {
 		super(tipo, atracciones, nombre);
 		this.setDescuento(descuento);
 	}
-	
-	public double getDescuento() { return this.descuento; }
+
+	public double getDescuento() {
+		return this.descuento;
+	}
 
 	@Override
 	public String toString() {
@@ -19,7 +22,7 @@ public class PromocionPorcentual extends Promocion{
 		for (Comprable a : atracciones) {
 			impresion += a.getNombre() + ", ";
 		}
-		impresion += " con un " + this.descuento + "% de descuento si se llevan ambas";
+		impresion += " con un " + this.descuento + "% de descuento si se llevan ambas: TOTAL: " + this.getCosto() +"\n Responde si o no";
 		return impresion;
 	}
 
@@ -29,9 +32,9 @@ public class PromocionPorcentual extends Promocion{
 		double descuento = precio * this.descuento;
 		return precio - descuento;
 	}
-	
+
 	private void setDescuento(double descuento) {
-		if(descuento <= 0 || descuento >= 1)
+		if (descuento <= 0 || descuento >= 1)
 			throw new DescuentoInvalidoException("El descuento ingresado debe ser menor a 1 y mayor a 0");
 		this.descuento = descuento;
 	}

@@ -15,8 +15,7 @@ public class AtraccionesTest {
 	Comprable erebor;
 	Comprable bosqueNegro;
 	Comprable atraccionMalConstruida;
-	
-	
+
 	@Before
 	public void setUp() throws Exception {
 		moria = new Atraccion("Moria", 10, 2, 6, TipoDeAtraccion.AVENTURA);
@@ -28,8 +27,8 @@ public class AtraccionesTest {
 		erebor = new Atraccion("Erebor", 12, 3, 32, TipoDeAtraccion.PAISAJE);
 		bosqueNegro = new Atraccion("Bosque Negro", 3, 4, 12, TipoDeAtraccion.AVENTURA);
 	}
-	
-	//Constructor
+
+	// Constructor
 	@Test
 	public void CreacionTest() {
 		assertNotNull(abismoDeHelm);
@@ -39,29 +38,29 @@ public class AtraccionesTest {
 		assertEquals(((Atraccion) moria).getCupoMaximo(), 6);
 		assertEquals(moria.getTipo(), TipoDeAtraccion.AVENTURA);
 	}
-	
-	//Excepciones en la construccion
-	@Test (expected = MontoInvalidoException.class)
+
+	// Excepciones en la construccion
+	@Test(expected = MontoInvalidoException.class)
 	public void ExcepcionesCostoInvalidoTest() {
 		atraccionMalConstruida = new Atraccion("Una", -5, 4, 12, TipoDeAtraccion.AVENTURA);
 	}
-	
-	@Test (expected = DuracionInvalidaException.class)
+
+	@Test(expected = DuracionInvalidaException.class)
 	public void ExcepcionesDuracionInvalidaTest() {
 		atraccionMalConstruida = new Atraccion("Una", 5, 0, 12, TipoDeAtraccion.AVENTURA);
 	}
-	
-	@Test (expected = CupoMaximoInvalidoException.class)
+
+	@Test(expected = CupoMaximoInvalidoException.class)
 	public void ExcepcionesCupoMaximoInvalidoTest() {
 		atraccionMalConstruida = new Atraccion("Una", 5, 5, 0, TipoDeAtraccion.AVENTURA);
 	}
-	
-	//Pruebas de cupo
+
+	// Pruebas de cupo
 	@Test
 	public void hayCupoTest() {
 		assertTrue(moria.hayCupo());
 	}
-	
+
 	@Test
 	public void hayCupoLimiteTest() {
 		moria.comprarLugar();
@@ -72,8 +71,8 @@ public class AtraccionesTest {
 		moria.comprarLugar();
 		assertFalse(moria.hayCupo());
 	}
-	
-	@Test (expected = CupoMaximoAlcanzadoException.class)
+
+	@Test(expected = CupoMaximoAlcanzadoException.class)
 	public void ComprarLugaresDeMasTest() {
 		moria.comprarLugar();
 		moria.comprarLugar();

@@ -29,14 +29,18 @@ public class Usuario {
 		return this.presupuesto >= producto.getCosto() && this.disponibilidad >= producto.getDuracion();
 	}
 	
+	public boolean yaCompro(Comprable producto) {
+		return this.itinerario.contains(producto);
+	}
+	
 	private void setPresupuesto(int presupuesto) {
-		if(presupuesto <= 0)
+		if(presupuesto < 0)
 			throw new MontoInvalidoException("El presupuesto debe ser mayor a 0");
 		this.presupuesto = presupuesto;
 	}
 
 	private void setDisponibilidad(double disponibilidad) {
-		if(disponibilidad <= 0)
+		if(disponibilidad < 0)
 			throw new DuracionInvalidaException("La disponibilidad debe ser mayor a 0");
 		this.disponibilidad = disponibilidad;
 	}

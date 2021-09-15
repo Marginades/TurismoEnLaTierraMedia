@@ -2,7 +2,7 @@ package parqueDeDiversiones;
 
 import java.util.List;
 
-public abstract class Promocion implements Comprable{
+public abstract class Promocion implements Comprable {
 	protected List<Comprable> atracciones;
 	protected TipoDeAtraccion tipo;
 	protected String nombre;
@@ -97,5 +97,11 @@ public abstract class Promocion implements Comprable{
 		}
 
 		return false;
+	}
+	
+	//Imprimir
+	@Override
+	public String toString() {
+		return "Llevá " + this.getNombre() + " por " + this.getCosto() + " monedas de oro \n Responde si o no";
 	}
 }

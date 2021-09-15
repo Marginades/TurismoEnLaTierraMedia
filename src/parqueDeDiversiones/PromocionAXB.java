@@ -3,15 +3,18 @@ package parqueDeDiversiones;
 import java.util.LinkedList;
 import java.util.List;
 
-public class PromocionAXB extends Promocion{
+public class PromocionAXB extends Promocion {
 	private Comprable atraccionGratis;
 
-	public PromocionAXB(TipoDeAtraccion tipo, String nombre, Comprable atraccionGratis, LinkedList<Comprable> atracciones) {
+	public PromocionAXB(TipoDeAtraccion tipo, String nombre, Comprable atraccionGratis,
+			LinkedList<Comprable> atracciones) {
 		super(tipo, atracciones, nombre);
 		this.setAtraccionGratis(atraccionGratis);
 	}
 
-	public Comprable getAtraccionGratis() { return this.atraccionGratis; }
+	public Comprable getAtraccionGratis() {
+		return this.atraccionGratis;
+	}
 
 	@Override
 	public String toString() {
@@ -19,7 +22,7 @@ public class PromocionAXB extends Promocion{
 		for (Comprable a : atracciones) {
 			impresion += a.getNombre() + ", ";
 		}
-		impresion += this.atraccionGratis + " es gratis";
+		impresion += this.atraccionGratis + " es gratis \n Responde si o no";
 		return impresion;
 	}
 
@@ -39,27 +42,26 @@ public class PromocionAXB extends Promocion{
 	}
 
 	private void setAtraccionGratis(Comprable atraccionGratis) {
-		if(!(this.getTipo() == atraccionGratis.getTipo()))
+		if (!(this.getTipo() == atraccionGratis.getTipo()))
 			throw new TipoInvalidoException("La atraccion debe ser del mismo tipo que la promoción");
 		this.atraccionGratis = atraccionGratis;
 	}
-	
+
 	@Override
 	public boolean esOContiene(Comprable c) {
 		return super.esOContiene(c) && this.atraccionGratis.equals(c);
 	}
-
 
 	@Override
 	public boolean esComprablePor(Usuario user) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
+
 	@Override
 	public void comprarLugar() {
 		for (Comprable a : this.atracciones) {
-			a.comprarLugar(); 
+			a.comprarLugar();
 		}
 		this.atraccionGratis.comprarLugar();
 	}

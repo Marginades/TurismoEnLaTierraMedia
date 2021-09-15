@@ -83,12 +83,11 @@ public class Atraccion implements Comprable{
 	public boolean esPromocion() {
 		return false;
 	}
-
 	
 	//Imprimir
-	//@Override
-	//public String toString() {
-	//	return ""; //Llevá " + this.nombre + " por " + this.costo + " monedas de oro";
-	//}
+	@Override
+	public String toString() {
+		return "Llevá " + this.nombre + " por " + this.costo + " monedas de oro \n Responde si o no";
+	}
 
 }
