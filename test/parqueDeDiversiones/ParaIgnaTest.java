@@ -114,8 +114,8 @@ public class ParaIgnaTest {
 		//assertFalse(u1.puedeComprar(a2));
 		
 		// Test nro3
-		//u1.comprar(p1);
-		//assertFalse(u1.puedeComprar(p2));     
+		u1.comprar(p1);
+		assertFalse(u1.puedeComprar(p2));     
 		
 		// Test nro4
 		//u1.comprar(p3);
