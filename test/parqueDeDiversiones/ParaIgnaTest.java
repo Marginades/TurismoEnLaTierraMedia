@@ -46,7 +46,8 @@ public class ParaIgnaTest {
 	public void testParaIgna() {
 		// Test nro1
 		//Si compra a1 no deberia poder comprar p2 porque incluye a1.
-		//u1.comprar(a1);
+		u1.comprar(a1);
+		assertEquals(1, a1.getEntradasVendidas());
 		//assertFalse(u1.puedeComprar(p2));
 		
 		// Test nro2

@@ -48,13 +48,23 @@ public class PromocionAXB extends Promocion {
 	}
 
 	@Override
-	public boolean esOContiene(Comprable c) {
-		return super.esOContiene(c) && this.atraccionGratis.equals(c);
+	public boolean esOContiene(Comprable atraccion) {
+		if (!atraccion.equals(this.atraccionGratis)) {
+
+			for (Comprable a : this.atracciones) {
+				if (atraccion.equals(a)) {
+					return true;
+				}
+			}
+
+			return false;
+		} else {
+			return true;
+		}
 	}
 
 	@Override
 	public boolean esComprablePor(Usuario user) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -65,9 +75,9 @@ public class PromocionAXB extends Promocion {
 		}
 		this.atraccionGratis.comprarLugar();
 	}
-	
+
 	@Override
-	public int getEntradasVendidas() { 
+	public int getEntradasVendidas() {
 		int entradas = 0;
 		for (Comprable atraccion : this.atracciones) {
 			entradas += atraccion.getEntradasVendidas();

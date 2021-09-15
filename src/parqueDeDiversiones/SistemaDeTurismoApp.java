@@ -1,7 +1,6 @@
 package parqueDeDiversiones;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -9,10 +8,6 @@ public class SistemaDeTurismoApp {
 
 	private static List<Comprable> productos;
 	private static List<Usuario> usuarios;
-	
-	
-	static FileReader fr;
-	static BufferedReader br;
 
 	public static void main(String[] args) {
 		// lectura de un archivo

@@ -1,7 +1,7 @@
 package parqueDeDiversiones;
 
 import java.util.LinkedList;
-import java.util.List;
+
 
 public class PromocionAbsoluta extends Promocion {
 	private int descuento;
@@ -41,5 +41,4 @@ public class PromocionAbsoluta extends Promocion {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
 }

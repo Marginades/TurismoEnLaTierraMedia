@@ -6,8 +6,7 @@ import java.util.List;
 public class PromocionPorcentual extends Promocion {
 	private double descuento;
 
-	public PromocionPorcentual(TipoDeAtraccion tipo, String nombre, double descuento,
-			LinkedList<Comprable> atracciones) {
+	public PromocionPorcentual(TipoDeAtraccion tipo, String nombre, double descuento, LinkedList<Comprable> atracciones) {
 		super(tipo, atracciones, nombre);
 		this.setDescuento(descuento);
 	}
