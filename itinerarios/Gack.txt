@@ -1,6 +1,6 @@
 Itinerario de Gack:
-Lothlórien
-Moria
+Montañas Azules
+Camino del viejo bosque
 
-Tiempo total: 3.0
-Gasto: 45
+Tiempo total: 4.0
+Gasto: 40

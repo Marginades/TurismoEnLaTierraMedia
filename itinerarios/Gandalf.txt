@@ -1,7 +1,7 @@
 Itinerario de Gandalf:
-Pinnath Gelin
-Lothlórien
 Montañas Azules
+Camino del viejo bosque
+Lothlórien
 
 Tiempo total: 5.0
-Gasto: 85
+Gasto: 75
