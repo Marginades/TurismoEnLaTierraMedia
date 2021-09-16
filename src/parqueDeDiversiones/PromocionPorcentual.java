@@ -17,11 +17,11 @@ public class PromocionPorcentual extends Promocion {
 
 	@Override
 	public String toString() {
-		String impresion = "Pack " + this.nombre + ": ";
+		String impresion = "Pack " + this.nombre + ", llevando:\n";
 		for (Comprable a : atracciones) {
-			impresion += a.getNombre() + ", ";
+			impresion += a.getNombre() + "\n";
 		}
-		impresion += " con un " + this.descuento + "% de descuento si se llevan ambas: TOTAL: " + this.getCosto();
+		impresion += "Tenés un " + this.descuento * 100 + "% de descuento\nTOTAL: " + this.getCosto() + " monedas de oro";
 		return impresion;
 	}
 

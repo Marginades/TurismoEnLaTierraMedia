@@ -1,5 +1,3 @@
-Galadriel-120-4.5-PAISAJE
-Gandalf-100-5-PAISAJE
 Minerva-125-5-PAISAJE
 Ermenor-115-7-PAISAJE
 Mazoga-60-3.5-PAISAJE

@@ -173,12 +173,19 @@ public class AdministradorDeArchivos {
 		return productos;
 	}
 
-	public static void escribirItinerario(List<Usuario> usuarios, String file) throws IOException {
+	public static void escribirItinerario(Usuario u, String file) throws IOException {
 		PrintWriter salida = new PrintWriter(new FileWriter(file));
-		for (Usuario u : usuarios) {
-			salida.println(u.toString());
-		}
+		salida.println(u.toString());
 		salida.close();
 	}
 
+	public static void escribirItinerariosPorUsuario() throws IOException {
+		for(Usuario u : usuarios) {
+			String file = "itinerarios/" + u.getNombre() + ".txt";
+			AdministradorDeArchivos.escribirItinerario(u, file);
+		}
+	}
 }
+
+
+

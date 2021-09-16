@@ -1,6 +1,5 @@
 package parqueDeDiversiones;
 
-
 import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
@@ -20,23 +19,32 @@ public class SistemaDeTurismoApp {
 			System.out.println("¡Hola " + user.getNombre() + "!");
 			if (!user.estaEnCero()) {
 				productos.sort(new ComparadorDeComprables(user.getPreferencia()));
-				//System.out.println(productos);
+
 				for (Comprable producto : productos) {
+					boolean respuestaValida = false;
+					String respuesta = "";
 					if (user.puedeComprar(producto)) {
-						System.out.println(producto);
-						System.out.println("Responde si o no");
-						if (sc.nextLine() == "si") {
-							user.comprar(producto);
-						} else
-							continue;
+						
+						while (!respuestaValida) {
+							System.out.println(producto);
+							System.out.println("Responde si o no");
+							respuesta = sc.nextLine();
+							if (respuesta.equals("si")) {
+								user.comprar(producto);
+								respuestaValida = true;
+								continue;
+							} else if (respuesta.equals("no")) {
+								respuestaValida = true;
+								continue;
+							}
+						}
 					}
-				} 
+				}
+				System.out.println("Gracias " + user.getNombre() + " ¡que disfrutes tus excursiones!");
 			}
-			System.out.println("Gracias " + user.getNombre() + " ¡que disfrutes tus excursiones!");
+			
 		}
+		AdministradorDeArchivos.escribirItinerariosPorUsuario();
 		sc.close();
-		
-		AdministradorDeArchivos.escribirItinerario(usuarios, "itinerarios.csv");
 	}
 }
-

@@ -30,7 +30,7 @@ public class Usuario {
 	private void agregarAlItinerario(Comprable producto) {
 		if (producto.esPromocion()) {
 			this.itinerario.addAll(((Promocion) producto).getAtracciones());
-		} else if (!producto.esPromocion()){
+		} else if (!producto.esPromocion()) {
 			this.itinerario.add(producto);
 		}
 	}
@@ -77,12 +77,18 @@ public class Usuario {
 
 	@Override
 	public String toString() {
+		String excursiones = "";		
+		Double duracion = 0.0;
+		int gastado = 0;
 		
-		String impresion = "Itinerario de " + this.nombre;
 		for(Comprable p : itinerario) {
-			impresion += p.getNombre();
+			excursiones += p.getNombre()+ "\n";
+			duracion += p.getDuracion();
+			gastado += p.getCosto();
 		}
-		return impresion;
+		
+		return "Itinerario de " + this.nombre + ":\n" + excursiones + 
+				"\nTiempo total: " + duracion + "\nGasto: " + gastado;
 	}
 
 	protected double getPresupuesto() {
@@ -96,8 +102,8 @@ public class Usuario {
 	protected List<Comprable> getItinerario() {
 		return itinerario;
 	}
-	
-	public String getNombre(){
+
+	public String getNombre() {
 		return nombre;
 	}
 

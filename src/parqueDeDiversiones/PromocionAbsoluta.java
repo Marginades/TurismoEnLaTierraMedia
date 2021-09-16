@@ -16,11 +16,11 @@ public class PromocionAbsoluta extends Promocion {
 
 	@Override
 	public String toString() {
-		String impresion = "Pack " + this.nombre + ": llevá";
+		String impresion = "Pack " + this.nombre + ", llevá:\n";
 		for (Comprable a : atracciones) {
-			impresion += a.getNombre() + ", ";
+			impresion += a.getNombre() + "\n";
 		}
-		impresion += " a tan solo" + this.getCosto();
+		impresion += "a tan solo " + this.getCosto();
 		return impresion;
 	}
 

@@ -26,11 +26,11 @@ public class PromocionAXB extends Promocion {
 
 	@Override
 	public String toString() {
-		String impresion = "Pack " + this.nombre + ": comprando";
+		String impresion = "Pack " + this.nombre + ", comprando:\n";
 		for (Comprable a : atracciones) {
-			impresion += a.getNombre() + ", ";
+			impresion += a.getNombre() + "\n";
 		}
-		impresion += this.atraccionGratis + " es gratis";
+		impresion += this.atraccionGratis.getNombre() + " es gratis\nTotal: " + this.getCosto();
 		return impresion;
 	}
 
